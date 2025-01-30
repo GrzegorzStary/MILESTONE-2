@@ -37,4 +37,15 @@ window.onload = function () {
         context.clearRect(bird.x, bird.y, bird.width, bird.height); // Clear rectangle
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
     };
+    requestAnimationFrame(update);
 };
+
+// For the game loop 
+function update() {
+    requestAnimationFrame(update);
+    context.clearRect(0, 0, board.width, board.height);
+
+    // bird loop
+    context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
+}
+
