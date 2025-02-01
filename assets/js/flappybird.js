@@ -7,7 +7,7 @@ let context;
 // Bird
 let birdWidth = 34;
 let birdHeight = 24;
-let birdX = 50; 
+let birdX = 50;
 let birdY = 200;
 let birdImg;
 
@@ -23,13 +23,15 @@ let poleArray = [];
 let poleWidth = 64;
 let poleHeight = 512;
 let poleX = boardWidth;
-let gapBetweenPoles = 150; // Gap for bird to pass through
+let gapBetweenPoles = 180; // Gap for bird to pass through
 
 let topPoleImg;
 let bottomPoleImg;
 
 // Game motion
 let velocityX = -2; // Speed of poles moving toward the bird
+let velocityY = 0; // Bird jump speed
+let gravity = 0.4;
 
 window.onload = function () {
     board = document.getElementById('board');
@@ -53,6 +55,7 @@ window.onload = function () {
     // Start game loop
     requestAnimationFrame(update);
     setInterval(placePole, 1500); // Place a new pair of poles every 1.5 seconds
+    document.addEventListener("keydown", moveBird);
 };
 
 // Game update loop
@@ -61,6 +64,9 @@ function update() {
     context.clearRect(0, 0, board.width, board.height);
 
     // Draw bird
+    velocityY += gravity;
+    // bird.y += velocityY;
+    bird.y = Math.max(bird.y + velocityY, 0); // apply the gravity or limit the top of the canvas
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
     // Move and draw poles
@@ -105,4 +111,19 @@ function placePole() {
     };
 
     poleArray.push(topPole, bottomPole);
+}
+
+// Function for the bird jump
+function moveBird(e); {
+    if (e.code == "space" || e.code == "arrowUp" || e.button === 0)
+        velocityY = -6;
+
+}
+
+// Function to detect collisitos
+function collision (a, b) {
+    return a.x < b.x + b.width &&
+    a.x + a.width > b.x &&
+    a.y < b.y + b.height &&
+    a.y + a.height > b.y;
 }
