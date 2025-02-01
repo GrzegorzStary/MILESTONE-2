@@ -69,7 +69,11 @@ window.onload = function () {
 
 // Game update loop
 function update() {
-    if (gameOver) return; // Stop game loop when game is over
+    if (gameOver) {
+        drawGameOverMessage();
+        return; // Stop updating when the game is over
+    }
+
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
@@ -77,8 +81,10 @@ function update() {
     velocityY += gravity;
     bird.y = Math.max(bird.y + velocityY, 0); // Prevent flying off the top
 
-    if (bird.y > board.height) {  
+    if (bird.y > board.height) {
         gameOver = true;
+        drawGameOverMessage();
+        return;
     }
 
     // Draw bird
@@ -94,6 +100,8 @@ function update() {
         // Collision detection
         if (collision(bird, pole)) {
             gameOver = true;
+            drawGameOverMessage();
+            return;
         }
 
         // Score update (increase score when passing the first pole in a pair)
@@ -111,8 +119,8 @@ function update() {
 
     // Draw score in the top-left corner
     context.fillStyle = "black";
-    context.font = "20px Arial";
-    context.fillText("Score: " + score, 10, 30);
+    context.font = "25px Arial";
+    context.fillText("Score: " + score, 20, 0);
 }
 
 // Function to place new poles
@@ -158,9 +166,9 @@ function moveBird(e) {
 // Function to detect collision
 function collision(a, b) {
     return a.x < b.x + b.width &&
-           a.x + a.width > b.x &&
-           a.y < b.y + b.height &&
-           a.y + a.height > b.y;
+        a.x + a.width > b.x &&
+        a.y < b.y + b.height &&
+        a.y + a.height > b.y;
 }
 
 // Function to restart game on click or "Enter"
@@ -170,4 +178,18 @@ function restartGame(e) {
     if (e.code === "Enter" || e.button === 0 || e.code === "Space") {
         location.reload(); // Reload the game
     }
+}
+
+// Game Over message with the final score
+
+function drawGameOverMessage() {
+    context.fillStyle = "red";
+    context.font = "bold 40px Arial";
+    context.textAlign = "center";
+    context.fillText("!!! GAME OVER !!!", boardWidth / 2, boardHeight / 2 - 40);
+
+    // Display final score under "GAME OVER" message
+    context.fillStyle = "red";
+    context.font = "bold 30px Arial";
+    context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 + 20);
 }
