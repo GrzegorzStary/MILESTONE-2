@@ -1,15 +1,15 @@
-// board
+// Board 
 let board;
 let boardWidth = 360;
 let boardHeight = 640;
 let context;
 
-// bird
+// Bird
 let birdWidth = 34;
 let birdHeight = 24;
-let birdX = 50; // Adjusted to better starting position
+let birdX = 50; 
 let birdY = 200;
-let birdImg = null;
+let birdImg;
 
 let bird = {
     x: birdX,
@@ -18,18 +18,18 @@ let bird = {
     height: birdHeight
 };
 
-// poles
+// Pole 
 let poleArray = [];
 let poleWidth = 64;
 let poleHeight = 512;
 let poleX = boardWidth;
-let poleY = 0;
+let gapBetweenPoles = 150; // Gap for bird to pass through
 
 let topPoleImg;
 let bottomPoleImg;
 
 // Game motion
-let velocityX = -2;
+let velocityX = -2; // Speed of poles moving toward the bird
 
 window.onload = function () {
     board = document.getElementById('board');
@@ -37,57 +37,72 @@ window.onload = function () {
     board.height = boardHeight;
     context = board.getContext("2d"); // Drawing on the board
 
-    // Drawing the bird (rectangle as fallback)
-    context.fillStyle = "green";
-    context.fillRect(bird.x, bird.y, bird.width, bird.height);
-
-    // Bird image
+    // Load bird image
     birdImg = new Image();
     birdImg.src = "./assets/images/flappybird.png";
-
-    // Draw image after loading
     birdImg.onload = function () {
-        context.clearRect(bird.x, bird.y, bird.width, bird.height); // Clear rectangle
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
     };
 
-    // Poles images load
+    // Load pole images
     topPoleImg = new Image();
     topPoleImg.src = "./assets/images/toppipe.png";
-
     bottomPoleImg = new Image();
     bottomPoleImg.src = "./assets/images/bottompipe.png";
 
+    // Start game loop
     requestAnimationFrame(update);
-    setInterval(placePole, 1500);
+    setInterval(placePole, 1500); // Place a new pair of poles every 1.5 seconds
 };
 
-// For the game loop 
+// Game update loop
 function update() {
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
-    // Bird loop
+    // Draw bird
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
-    // Pole loop
+    // Move and draw poles
     for (let i = 0; i < poleArray.length; i++) {
         let pole = poleArray[i];
-        pole.x += velocityX;
-        context.drawImage(pole.Image, pole.x, pole.y, pole.width, pole.height);
+        pole.x += velocityX; // Pole moving left
+
+        context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
+    }
+
+    // Remove poles that go off screen
+    if (poleArray.length > 0 && poleArray[0].x + poleWidth < 0) {
+        poleArray.shift(); // Remove the first (oldest) pole
+        poleArray.shift(); // Remove its pair (top + bottom poles)
     }
 }
 
-// Function for the poles
-
+// Function to place new poles
 function placePole() {
+    let minPoleHeight = 100;
+    let maxPoleHeight = boardHeight - minPoleHeight - gapBetweenPoles;
+
+    let randomTopHeight = Math.floor(Math.random() * (maxPoleHeight - minPoleHeight + 1) + minPoleHeight);
+    let bottomPoleY = randomTopHeight + gapBetweenPoles;
+
     let topPole = {
         img: topPoleImg,
         x: poleX,
-        y: poleY,
+        y: 0,
+        width: poleWidth,
+        height: randomTopHeight,
+        passed: false
+    };
+
+    let bottomPole = {
+        img: bottomPoleImg,
+        x: poleX,
+        y: bottomPoleY,
         width: poleWidth,
         height: poleHeight,
         passed: false
-    }
-    poleArray.push(topPole);
+    };
+
+    poleArray.push(topPole, bottomPole);
 }
