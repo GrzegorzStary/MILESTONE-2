@@ -32,6 +32,8 @@ let bottomPoleImg;
 let velocityX = -2; // Pole movement speed
 let velocityY = 0; // Bird vertical speed
 let gravity = 0.4;
+let gameOver = false;
+
 
 window.onload = function () {
     board = document.getElementById('board');
@@ -64,6 +66,10 @@ window.onload = function () {
 // Game update loop
 function update() {
     requestAnimationFrame(update);
+    if (gameOver) {
+        return;
+    }
+
     context.clearRect(0, 0, board.width, board.height);
 
     // Apply gravity to bird
@@ -82,12 +88,11 @@ function update() {
 
         // Collision detection
         if (collision(bird, pole)) {
-            console.log("Game Over!");
-            location.reload(); // Restart game on collision
+            gameOver = true;
         }
     }
 
-    // Remove off-screen poles
+    // Remove off screen poles
     if (poleArray.length > 0 && poleArray[0].x + poleWidth < 0) {
         poleArray.shift(); // Remove first pole
         poleArray.shift(); // Remove paired bottom pole
@@ -96,6 +101,9 @@ function update() {
 
 // Function to place new poles
 function placePole() {
+    if (gameOver) {
+        return;
+    }
     let minPoleHeight = 100;
     let maxPoleHeight = boardHeight - minPoleHeight - gapBetweenPoles;
 
