@@ -34,6 +34,8 @@ let velocityY = 0; // Bird vertical speed
 let gravity = 0.4;
 let gameOver = false;
 
+// Score counter
+let score = 0;
 
 window.onload = function () {
     board = document.getElementById('board');
@@ -61,20 +63,23 @@ window.onload = function () {
     // Add event listeners for jumping
     document.addEventListener("keydown", moveBird);
     document.addEventListener("mousedown", moveBird); // Left mouse click
+    document.addEventListener("keydown", restartGame); // Restart game on "Enter"
+    document.addEventListener("mousedown", restartGame); // Restart game on click
 };
 
 // Game update loop
 function update() {
+    if (gameOver) return; // Stop game loop when game is over
     requestAnimationFrame(update);
-    if (gameOver) {
-        return;
-    }
-
     context.clearRect(0, 0, board.width, board.height);
 
     // Apply gravity to bird
     velocityY += gravity;
     bird.y = Math.max(bird.y + velocityY, 0); // Prevent flying off the top
+
+    if (bird.y > board.height) {  
+        gameOver = true;
+    }
 
     // Draw bird
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
@@ -90,20 +95,30 @@ function update() {
         if (collision(bird, pole)) {
             gameOver = true;
         }
+
+        // Score update (increase score when passing the first pole in a pair)
+        if (!pole.passed && pole.x + pole.width < bird.x) {
+            pole.passed = true;
+            score += 0.5; // Add 1 point for passing a pair
+        }
     }
 
-    // Remove off screen poles
+    // Remove off-screen poles
     if (poleArray.length > 0 && poleArray[0].x + poleWidth < 0) {
         poleArray.shift(); // Remove first pole
         poleArray.shift(); // Remove paired bottom pole
     }
+
+    // Draw score in the top-left corner
+    context.fillStyle = "black";
+    context.font = "20px Arial";
+    context.fillText("Score: " + score, 10, 30);
 }
 
 // Function to place new poles
 function placePole() {
-    if (gameOver) {
-        return;
-    }
+    if (gameOver) return;
+
     let minPoleHeight = 100;
     let maxPoleHeight = boardHeight - minPoleHeight - gapBetweenPoles;
 
@@ -116,7 +131,7 @@ function placePole() {
         y: 0,
         width: poleWidth,
         height: randomTopHeight,
-        passed: false
+        passed: false // Track if the pole is passed
     };
 
     let bottomPole = {
@@ -125,7 +140,7 @@ function placePole() {
         y: bottomPoleY,
         width: poleWidth,
         height: poleHeight,
-        passed: false
+        passed: false // Track if the pole is passed
     };
 
     poleArray.push(topPole, bottomPole);
@@ -133,6 +148,8 @@ function placePole() {
 
 // Function for bird jump (Space, ArrowUp, Left Click)
 function moveBird(e) {
+    if (gameOver) return; // Disable jumping when game over
+
     if (e.code === "Space" || e.code === "ArrowUp" || e.button === 0) {
         velocityY = -6; // Jump upwards
     }
@@ -144,4 +161,13 @@ function collision(a, b) {
            a.x + a.width > b.x &&
            a.y < b.y + b.height &&
            a.y + a.height > b.y;
+}
+
+// Function to restart game on click or "Enter"
+function restartGame(e) {
+    if (!gameOver) return; // Restart only when game is over
+
+    if (e.code === "Enter" || e.button === 0 || e.code === "Space") {
+        location.reload(); // Reload the game
+    }
 }
