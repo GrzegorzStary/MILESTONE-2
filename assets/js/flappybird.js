@@ -28,6 +28,9 @@ let poleY = 0;
 let topPoleImg;
 let bottomPoleImg;
 
+// Game motion
+let velocityX = -2;
+
 window.onload = function () {
     board = document.getElementById('board');
     board.width = boardWidth;
@@ -70,6 +73,7 @@ function update() {
     // Pole loop
     for (let i = 0; i < poleArray.length; i++) {
         let pole = poleArray[i];
+        pole.x += velocityX;
         context.drawImage(pole.Image, pole.x, pole.y, pole.width, pole.height);
     }
 }
