@@ -18,19 +18,19 @@ let bird = {
     height: birdHeight
 };
 
-// Pole 
+// Poles 
 let poleArray = [];
 let poleWidth = 64;
 let poleHeight = 512;
 let poleX = boardWidth;
-let gapBetweenPoles = 180; // Gap for bird to pass through
+let gapBetweenPoles = 180; // Space between poles for bird to pass
 
 let topPoleImg;
 let bottomPoleImg;
 
 // Game motion
-let velocityX = -2; // Speed of poles moving toward the bird
-let velocityY = 0; // Bird jump speed
+let velocityX = -2; // Pole movement speed
+let velocityY = 0; // Bird vertical speed
 let gravity = 0.4;
 
 window.onload = function () {
@@ -55,7 +55,10 @@ window.onload = function () {
     // Start game loop
     requestAnimationFrame(update);
     setInterval(placePole, 1500); // Place a new pair of poles every 1.5 seconds
+
+    // Add event listeners for jumping
     document.addEventListener("keydown", moveBird);
+    document.addEventListener("mousedown", moveBird); // Left mouse click
 };
 
 // Game update loop
@@ -63,24 +66,31 @@ function update() {
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
-    // Draw bird
+    // Apply gravity to bird
     velocityY += gravity;
-    // bird.y += velocityY;
-    bird.y = Math.max(bird.y + velocityY, 0); // apply the gravity or limit the top of the canvas
+    bird.y = Math.max(bird.y + velocityY, 0); // Prevent flying off the top
+
+    // Draw bird
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
     // Move and draw poles
     for (let i = 0; i < poleArray.length; i++) {
         let pole = poleArray[i];
-        pole.x += velocityX; // Pole moving left
+        pole.x += velocityX; // Move pole left
 
         context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
+
+        // Collision detection
+        if (collision(bird, pole)) {
+            console.log("Game Over!");
+            location.reload(); // Restart game on collision
+        }
     }
 
-    // Remove poles that go off screen
+    // Remove off-screen poles
     if (poleArray.length > 0 && poleArray[0].x + poleWidth < 0) {
-        poleArray.shift(); // Remove the first (oldest) pole
-        poleArray.shift(); // Remove its pair (top + bottom poles)
+        poleArray.shift(); // Remove first pole
+        poleArray.shift(); // Remove paired bottom pole
     }
 }
 
@@ -113,17 +123,17 @@ function placePole() {
     poleArray.push(topPole, bottomPole);
 }
 
-// Function for the bird jump
-function moveBird(e); {
-    if (e.code == "space" || e.code == "arrowUp" || e.button === 0)
-        velocityY = -6;
-
+// Function for bird jump (Space, ArrowUp, Left Click)
+function moveBird(e) {
+    if (e.code === "Space" || e.code === "ArrowUp" || e.button === 0) {
+        velocityY = -6; // Jump upwards
+    }
 }
 
-// Function to detect collisitos
-function collision (a, b) {
+// Function to detect collision
+function collision(a, b) {
     return a.x < b.x + b.width &&
-    a.x + a.width > b.x &&
-    a.y < b.y + b.height &&
-    a.y + a.height > b.y;
+           a.x + a.width > b.x &&
+           a.y < b.y + b.height &&
+           a.y + a.height > b.y;
 }
