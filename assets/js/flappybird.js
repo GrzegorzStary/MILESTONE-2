@@ -23,173 +23,144 @@ let poleArray = [];
 let poleWidth = 64;
 let poleHeight = 512;
 let poleX = boardWidth;
-let gapBetweenPoles = 180; // Space between poles for bird to pass
+let gapBetweenPoles = 180;
 
 let topPoleImg;
 let bottomPoleImg;
 
 // Game motion
-let velocityX = -2; // Pole movement speed
-let velocityY = 0; // Bird vertical speed
+let velocityX = -2;
+let velocityY = 0;
 let gravity = 0.4;
 let gameOver = false;
 
 // Score counter
 let score = 0;
+let bestScore = localStorage.getItem("bestScore") || 0;
 
 window.onload = function () {
     board = document.getElementById('board');
     board.width = boardWidth;
     board.height = boardHeight;
-    context = board.getContext("2d"); // Drawing on the board
+    context = board.getContext("2d");
 
-    // Load bird image
     birdImg = new Image();
-    birdImg.src = "./assets/images/flappybird.png";
+    birdImg.src = "./assets/images/flappybird.gif";
     birdImg.onload = function () {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
     };
 
-    // Load pole images
     topPoleImg = new Image();
-    topPoleImg.src = "./assets/images/toppipe.png";
+    topPoleImg.src = "./assets/images/treedown.png";
     bottomPoleImg = new Image();
-    bottomPoleImg.src = "./assets/images/bottompipe.png";
+    bottomPoleImg.src = "./assets/images/tree.png";
 
-    // Start game loop
     requestAnimationFrame(update);
-    setInterval(placePole, 1500); // Place a new pair of poles every 1.5 seconds
+    setInterval(placePole, 1500);
 
-    // Add event listeners for jumping
     document.addEventListener("keydown", moveBird);
-    document.addEventListener("mousedown", moveBird); // Left mouse click
-    document.addEventListener("keydown", restartGame); // Restart game on "Enter"
-    document.addEventListener("mousedown", restartGame); // Restart game on click
+    document.addEventListener("mousedown", moveBird);
+    document.addEventListener("keydown", restartGame);
+    document.addEventListener("mousedown", restartGame);
 };
 
-// Game update loop
 function update() {
     if (gameOver) {
         drawGameOverMessage();
-        return; // Stop updating when the game is over
+        return;
     }
 
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
-    // Apply gravity to bird
     velocityY += gravity;
-    bird.y = Math.max(bird.y + velocityY, 0); // Prevent flying off the top
+    bird.y = Math.max(bird.y + velocityY, 0);
 
     if (bird.y > board.height) {
+        bird.y = board.height;
+        velocityY = 0;
         gameOver = true;
         drawGameOverMessage();
         return;
     }
 
-    // Draw bird
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
-    // Move and draw poles
     for (let i = 0; i < poleArray.length; i++) {
         let pole = poleArray[i];
-        pole.x += velocityX; // Move pole left
-
+        pole.x += velocityX;
         context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
 
-        // Collision detection
         if (collision(bird, pole)) {
             gameOver = true;
             drawGameOverMessage();
             return;
         }
 
-        // Score update (increase score when passing the first pole in a pair)
-        if (!pole.passed && pole.x + pole.width < bird.x) {
+        if (!pole.passed && pole.x + pole.width < bird.x && pole.y > 0) {
             pole.passed = true;
-            score += 0.5; // Add 1 point for passing a pair
+            score += 1;
         }
     }
 
-    // Remove off-screen poles
     if (poleArray.length > 0 && poleArray[0].x + poleWidth < 0) {
-        poleArray.shift(); // Remove first pole
-        poleArray.shift(); // Remove paired bottom pole
+        poleArray.shift();
+        poleArray.shift();
     }
 
-    // Draw score in the top-left corner
     context.fillStyle = "black";
-    context.font = "25px Arial";
-    context.fillText("Score: " + score, 20, 0);
+    context.font = "20px Arial";
+    context.fillText("Score: " + score, 10, 40);
+    
+    context.fillStyle = "white";
+    context.font = "20px Arial";
+    context.fillText("Best: " + bestScore, boardWidth - 100, 40);
 }
 
-// Function to place new poles
 function placePole() {
     if (gameOver) return;
 
     let minPoleHeight = 100;
     let maxPoleHeight = boardHeight - minPoleHeight - gapBetweenPoles;
-
     let randomTopHeight = Math.floor(Math.random() * (maxPoleHeight - minPoleHeight + 1) + minPoleHeight);
     let bottomPoleY = randomTopHeight + gapBetweenPoles;
 
-    let topPole = {
-        img: topPoleImg,
-        x: poleX,
-        y: 0,
-        width: poleWidth,
-        height: randomTopHeight,
-        passed: false // Track if the pole is passed
-    };
-
-    let bottomPole = {
-        img: bottomPoleImg,
-        x: poleX,
-        y: bottomPoleY,
-        width: poleWidth,
-        height: poleHeight,
-        passed: false // Track if the pole is passed
-    };
+    let topPole = { img: topPoleImg, x: poleX, y: 0, width: poleWidth, height: randomTopHeight, passed: false };
+    let bottomPole = { img: bottomPoleImg, x: poleX, y: bottomPoleY, width: poleWidth, height: poleHeight, passed: false };
 
     poleArray.push(topPole, bottomPole);
 }
 
-// Function for bird jump (Space, ArrowUp, Left Click)
 function moveBird(e) {
-    if (gameOver) return; // Disable jumping when game over
+    if (gameOver) return;
 
     if (e.code === "Space" || e.code === "ArrowUp" || e.button === 0) {
-        velocityY = -6; // Jump upwards
+        velocityY = -6;
     }
 }
 
-// Function to detect collision
 function collision(a, b) {
-    return a.x < b.x + b.width &&
-        a.x + a.width > b.x &&
-        a.y < b.y + b.height &&
-        a.y + a.height > b.y;
+    return a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
 }
 
-// Function to restart game on click or "Enter"
 function restartGame(e) {
-    if (!gameOver) return; // Restart only when game is over
+    if (!gameOver) return;
 
     if (e.code === "Enter" || e.button === 0 || e.code === "Space") {
-        location.reload(); // Reload the game
+        if (score > bestScore) {
+            bestScore = score;
+            localStorage.setItem("bestScore", bestScore);
+        }
+        location.reload();
     }
 }
 
-// Game Over message with the final score
-
 function drawGameOverMessage() {
-    context.fillStyle = "red";
+    context.fillStyle = "white";
     context.font = "bold 40px Arial";
     context.textAlign = "center";
     context.fillText("!!! GAME OVER !!!", boardWidth / 2, boardHeight / 2 - 40);
-
-    // Display final score under "GAME OVER" message
-    context.fillStyle = "red";
     context.font = "bold 30px Arial";
     context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 + 20);
+    context.fillText("Best: " + bestScore, boardWidth / 2, boardHeight / 2 + 60);
 }
