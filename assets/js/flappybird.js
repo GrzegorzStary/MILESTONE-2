@@ -46,7 +46,7 @@ window.onload = function () {
     context = board.getContext("2d");
 
     birdImg = new Image();
-    birdImg.src = "./assets/images/flappybird.gif";
+    birdImg.src = "./assets/images/flappybird.png";
     birdImg.onload = function () {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
         drawPlayButton();
@@ -129,13 +129,13 @@ function update() {
 function placePole() {
     if (gameOver) return;
 
-    let minPoleHeight = 100;
-    let maxPoleHeight = boardHeight - minPoleHeight - gapBetweenPoles;
-    let randomTopHeight = Math.floor(Math.random() * (maxPoleHeight - minPoleHeight + 1) + minPoleHeight);
-    let bottomPoleY = randomTopHeight + gapBetweenPoles;
+    const minPoleHeight = 100;
+    const maxPoleHeight = boardHeight - minPoleHeight - gapBetweenPoles;
+    const randomTopHeight = Math.floor(Math.random() * (maxPoleHeight - minPoleHeight + 1) + minPoleHeight);
+    const bottomPoleY = randomTopHeight + gapBetweenPoles;
 
-    let topPole = { img: topPoleImg, x: poleX, y: 0, width: poleWidth, height: randomTopHeight, passed: false };
-    let bottomPole = { img: bottomPoleImg, x: poleX, y: bottomPoleY, width: poleWidth, height: poleHeight, passed: false };
+    const topPole = { img: topPoleImg, x: poleX, y: 0, width: poleWidth, height: randomTopHeight, passed: false };
+    const bottomPole = { img: bottomPoleImg, x: poleX, y: bottomPoleY, width: poleWidth, height: poleHeight, passed: false };
 
     poleArray.push(topPole, bottomPole);
 }
