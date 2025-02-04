@@ -1,17 +1,17 @@
 // Board 
-const board;
-const boardWidth = 360;
-const boardHeight = 640;
-const context;
+let board;
+let boardWidth = 360;
+let boardHeight = 640;
+let context;
 
 // Bird
-const birdWidth = 34;
-const birdHeight = 24;
-const birdX = 50;
-const birdY = 200;
-const birdImg;
+let birdWidth = 34;
+let birdHeight = 24;
+let birdX = 50;
+let birdY = 200;
+let birdImg;
 
-const bird = {
+let bird = {
     x: birdX,
     y: birdY,
     width: birdWidth,
@@ -19,25 +19,25 @@ const bird = {
 };
 
 // Poles 
-const poleArray = [];
-const poleWidth = 64;
-const poleHeight = 512;
-const poleX = boardWidth;
-const gapBetweenPoles = 180;
+let poleArray = [];
+let poleWidth = 64;
+let poleHeight = 512;
+let poleX = boardWidth;
+let gapBetweenPoles = 180;
 
-const topPoleImg;
-const bottomPoleImg;
+let topPoleImg;
+let bottomPoleImg;
 
 // Game motion
-const velocityX = -2;
-const velocityY = 0;
-const gravity = 0.4;
-const gameOver = false;
-const gameStarted = false;
+let velocityX = -2;
+let velocityY = 0;
+let gravity = 0.4;
+let gameOver = false;
+let gameStarted = false;
 
 // Score counter
-const score = 0;
-const bestScore = localStorage.getItem("bestScore") || 0;
+let score = 0;
+let bestScore = localStorage.getItem("bestScore") || 0;
 
 window.onload = function () {
     board = document.getElementById('board');
