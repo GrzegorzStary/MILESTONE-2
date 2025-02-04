@@ -1,12 +1,12 @@
 // Board 
 let board;
-let boardWidth = 360;
-let boardHeight = 640;
+let boardWidth = 400;
+let boardHeight = 750;
 let context;
 
 // Bird
-let birdWidth = 34;
-let birdHeight = 24;
+let birdWidth = 40;
+let birdHeight = 33;
 let birdX = 50;
 let birdY = 200;
 let birdImg;
@@ -37,7 +37,8 @@ let gameStarted = false;
 
 // Score counter
 let score = 0;
-let bestScore = localStorage.getItem("bestScore") || 0;
+let bestScore = 0;
+localStorage.removeItem("bestScore");
 
 window.onload = function () {
     board = document.getElementById('board');
