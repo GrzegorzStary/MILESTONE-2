@@ -1,17 +1,17 @@
 // Board 
-let board;
-let boardWidth = 360;
-let boardHeight = 640;
-let context;
+const board;
+const boardWidth = 360;
+const boardHeight = 640;
+const context;
 
 // Bird
-let birdWidth = 34;
-let birdHeight = 24;
-let birdX = 50;
-let birdY = 200;
-let birdImg;
+const birdWidth = 34;
+const birdHeight = 24;
+const birdX = 50;
+const birdY = 200;
+const birdImg;
 
-let bird = {
+const bird = {
     x: birdX,
     y: birdY,
     width: birdWidth,
@@ -19,24 +19,25 @@ let bird = {
 };
 
 // Poles 
-let poleArray = [];
-let poleWidth = 64;
-let poleHeight = 512;
-let poleX = boardWidth;
-let gapBetweenPoles = 180;
+const poleArray = [];
+const poleWidth = 64;
+const poleHeight = 512;
+const poleX = boardWidth;
+const gapBetweenPoles = 180;
 
-let topPoleImg;
-let bottomPoleImg;
+const topPoleImg;
+const bottomPoleImg;
 
 // Game motion
-let velocityX = -2;
-let velocityY = 0;
-let gravity = 0.4;
-let gameOver = false;
+const velocityX = -2;
+const velocityY = 0;
+const gravity = 0.4;
+const gameOver = false;
+const gameStarted = false;
 
 // Score counter
-let score = 0;
-let bestScore = localStorage.getItem("bestScore") || 0;
+const score = 0;
+const bestScore = localStorage.getItem("bestScore") || 0;
 
 window.onload = function () {
     board = document.getElementById('board');
@@ -48,6 +49,7 @@ window.onload = function () {
     birdImg.src = "./assets/images/flappybird.gif";
     birdImg.onload = function () {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
+        drawPlayButton();
     };
 
     topPoleImg = new Image();
@@ -55,14 +57,21 @@ window.onload = function () {
     bottomPoleImg = new Image();
     bottomPoleImg.src = "./assets/images/tree.png";
 
-    requestAnimationFrame(update);
-    setInterval(placePole, 1500);
-
-    document.addEventListener("keydown", moveBird);
-    document.addEventListener("mousedown", moveBird);
-    document.addEventListener("keydown", restartGame);
-    document.addEventListener("mousedown", restartGame);
+    document.addEventListener("keydown", startGame);
+    document.addEventListener("mousedown", startGame);
 };
+
+function startGame(e) {
+    if (!gameStarted && (e.code === "Space" || e.code === "ArrowUp" || e.button === 0)) {
+        gameStarted = true;
+        requestAnimationFrame(update);
+        setInterval(placePole, 1500);
+        document.addEventListener("keydown", moveBird);
+        document.addEventListener("mousedown", moveBird);
+        document.addEventListener("keydown", restartGame);
+        document.addEventListener("mousedown", restartGame);
+    }
+}
 
 function update() {
     if (gameOver) {
@@ -163,4 +172,12 @@ function drawGameOverMessage() {
     context.font = "bold 30px Arial";
     context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 + 20);
     context.fillText("Best: " + bestScore, boardWidth / 2, boardHeight / 2 + 60);
+}
+// Start the game button
+function drawPlayButton() {
+    context.fillStyle = "white";
+    context.font = "bold 25px Arial";
+    context.textAlign = "center";
+    context.border = "1px";
+    context.fillText("Press Space to Play!", boardWidth / 2, boardHeight / 2);
 }
