@@ -47,7 +47,7 @@ window.onload = function () {
     context = board.getContext("2d");
 
     birdImg = new Image();
-    birdImg.src = "./assets/images/flappybird.png";
+    birdImg.src = "./assets/images/flappybird1.png";
     birdImg.onload = function () {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
         drawPlayButton();
