@@ -1,4 +1,7 @@
-const { collision, restartGame, moveBird, placePole } = require('assets/js/flappybird.js'); // Adjust import path if needed
+/**
+* @jest-environment jsdom
+*/
+const { collision, restartGame, moveBird, placePole } = require('../flappybird.js'); // Adjust import path if needed
 
 describe("Flappy Bird Game Tests", () => {
     

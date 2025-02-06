@@ -181,3 +181,5 @@ function drawPlayButton() {
     context.border = "1px";
     context.fillText("Press Space to Play!", boardWidth / 2, boardHeight / 2);
 }
+
+module.exports = { collision, restartGame, moveBird, placePole }
