@@ -65,7 +65,7 @@ function startGame(e) {
     if (!gameStarted && (e.code === "Space" || e.code === "ArrowUp" || e.button === 0)) {
         gameStarted = true;
         requestAnimationFrame(update);
-        setInterval(placePole, 1500);
+        setInterval(placePole, 1600);
         document.addEventListener("keydown", moveBird);
         document.addEventListener("mousedown", moveBird);
         document.addEventListener("keydown", restartGame);

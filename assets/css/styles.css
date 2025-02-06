@@ -2,10 +2,12 @@ body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     background-color: #92A664;
-    border: 1px solid black;
 }
 
 #board {
     background-image: url(../images/background.png);
+    background-image:;
     border: 1px solid black;
+    border-radius: 25px;
+    background-size: cover;
 }
