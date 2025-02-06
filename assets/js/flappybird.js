@@ -1,12 +1,12 @@
 // Board 
 let board;
-let boardWidth = 400;
-let boardHeight = 750;
+let boardWidth = 450;
+let boardHeight = 790;
 let context;
 
 // Bird
-let birdWidth = 40;
-let birdHeight = 33;
+let birdWidth = 45;
+let birdHeight = 45;
 let birdX = 50;
 let birdY = 200;
 let birdImg;
@@ -37,8 +37,7 @@ let gameStarted = false;
 
 // Score counter
 let score = 0;
-let bestScore = 0;
-localStorage.removeItem("bestScore");
+let bestScore = localStorage.getItem("bestScore") || 0;
 
 window.onload = function () {
     board = document.getElementById('board');
@@ -118,13 +117,13 @@ function update() {
         poleArray.shift();
     }
 
-    context.fillStyle = "black";
-    context.font = "20px Arial";
-    context.fillText("Score: " + score, 10, 40);
-    
     context.fillStyle = "white";
     context.font = "20px Arial";
-    context.fillText("Best: " + bestScore, boardWidth - 100, 40);
+    context.fillText("Score: " + score, 60, 80);
+    
+    context.fillStyle = "blue";
+    context.font = "20px Arial";
+    context.fillText("Best: " + bestScore, boardWidth - 60, 80);
 }
 
 function placePole() {
@@ -166,7 +165,7 @@ function restartGame(e) {
 }
 
 function drawGameOverMessage() {
-    context.fillStyle = "white";
+    context.fillStyle = "red";
     context.font = "bold 40px Arial";
     context.textAlign = "center";
     context.fillText("!!! GAME OVER !!!", boardWidth / 2, boardHeight / 2 - 40);
