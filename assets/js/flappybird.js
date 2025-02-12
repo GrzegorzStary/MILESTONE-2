@@ -222,7 +222,7 @@ function drawPlayButton() {
     context.font = "bold 25px Arial";
     context.textAlign = "center";
     context.border = "1px";
-    context.fillText("Press Space to Play!", boardWidth / 2, boardHeight / 2);
+    context.fillText("Press Space or Tap screen to Play!", boardWidth / 2, boardHeight / 2);
 }
 
 window.addEventListener("resize", function () {
