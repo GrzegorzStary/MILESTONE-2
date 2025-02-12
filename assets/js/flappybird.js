@@ -1,7 +1,7 @@
 // Board 
 let board;
 let boardWidth = 450;
-let boardHeight = 790;
+let boardHeight = 780;
 let context;
 
 // Bird
@@ -38,6 +38,46 @@ let gameStarted = false;
 // Score counter
 let score = 0;
 let bestScore = localStorage.getItem("bestScore") || 0;
+
+
+function setScreenDimensions() {
+    let screenWidth = window.innerWidth;
+
+    if (screenWidth <= 320) {
+        boardWidth = 300;
+        boardHeight = 500;
+        birdWidth = 30;
+        birdHeight = 30;
+        poleWidth = 50;
+        gapBetweenPoles = 140;
+    } else if (screenWidth <= 480) {
+        boardWidth = 350;
+        boardHeight = 600;
+        birdWidth = 35;
+        birdHeight = 35;
+        poleWidth = 55;
+        gapBetweenPoles = 160;
+    } else if (screenWidth <= 768) {
+        boardWidth = 400;
+        boardHeight = 700;
+        birdWidth = 40;
+        birdHeight = 40;
+        poleWidth = 60;
+        gapBetweenPoles = 170;
+    } else {
+        boardWidth = 450;
+        boardHeight = 780;
+        birdWidth = 45;
+        birdHeight = 45;
+        poleWidth = 64;
+        gapBetweenPoles = 180;
+    }
+    birdX = 50;
+    birdY = boardHeight / 3;
+    poleX = boardWidth;
+    poleHeight = 512;
+    bird = { x: birdX, y: birdY, width: birdWidth, height: birdHeight };
+}
 
 window.onload = function () {
     board = document.getElementById('board');
@@ -123,7 +163,7 @@ function update() {
     context.fillStyle = "white";
     context.font = "20px Arial";
     context.fillText("Score: " + score, 60, 80);
-    
+
     context.fillStyle = "blue";
     context.font = "20px Arial";
     context.fillText("Best: " + bestScore, boardWidth - 60, 80);
@@ -184,5 +224,11 @@ function drawPlayButton() {
     context.border = "1px";
     context.fillText("Press Space to Play!", boardWidth / 2, boardHeight / 2);
 }
+
+window.addEventListener("resize", function () {
+    setScreenDimensions();
+    board.width = boardWidth;
+    board.height = boardHeight;
+});
 
 module.exports = { collision, restartGame, moveBird, placePole }
