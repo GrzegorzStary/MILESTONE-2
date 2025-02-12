@@ -39,7 +39,7 @@ let gameStarted = false;
 let score = 0;
 let bestScore = localStorage.getItem("bestScore") || 0;
 
-
+// Responsivnes
 function setScreenDimensions() {
     let screenWidth = window.innerWidth;
 
@@ -78,6 +78,15 @@ function setScreenDimensions() {
     poleHeight = 512;
     bird = { x: birdX, y: birdY, width: birdWidth, height: birdHeight };
 }
+
+// Preven zooming and prevent selecting entire screen while playing the game.
+document.addEventListener("gesturestart", function (e) {
+    e.preventDefault();
+});
+
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
 
 window.onload = function () {
     board = document.getElementById('board');
