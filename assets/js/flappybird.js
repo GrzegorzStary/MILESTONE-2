@@ -87,7 +87,7 @@ document.addEventListener("gesturestart", function (e) {
 document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
 });
-
+// Images of Bird and trees as well as starting the game event listeners.
 window.onload = function () {
     board = document.getElementById('board');
     board.width = boardWidth;
@@ -111,6 +111,7 @@ window.onload = function () {
     document.addEventListener("touchstart", startGame);
 };
 
+// Function for starting and restarting the game.
 function startGame(e) {
     if (!gameStarted && (e.code === "Space" || e.code === "ArrowUp" || e.button === 0 || e.type === "touchstart")) {
         gameStarted = true;
@@ -130,7 +131,7 @@ function update() {
         drawGameOverMessage();
         return;
     }
-
+// Animation pole movement
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
@@ -151,13 +152,13 @@ function update() {
         let pole = poleArray[i];
         pole.x += velocityX;
         context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
-
+// Collision 
         if (collision(bird, pole)) {
             gameOver = true;
             drawGameOverMessage();
             return;
         }
-
+// Score update
         if (!pole.passed && pole.x + pole.width < bird.x && pole.y > 0) {
             pole.passed = true;
             score += 1;
@@ -177,7 +178,7 @@ function update() {
     context.font = "20px Arial";
     context.fillText("Best: " + bestScore, boardWidth - 60, 80);
 }
-
+// Placing poles randomly
 function placePole() {
     if (gameOver) return;
 
@@ -215,7 +216,7 @@ function restartGame(e) {
         location.reload();
     }
 }
-
+// Game over message
 function drawGameOverMessage() {
     context.fillStyle = "red";
     context.font = "bold 40px Arial";
