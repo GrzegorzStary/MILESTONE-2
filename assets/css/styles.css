@@ -6,8 +6,34 @@ body {
 
 #board {
     background-image: url(../images/background.png);
-    background-image:;
     border: 1px solid black;
     border-radius: 25px;
     background-size: cover;
 }
+
+/* Media for game for better look on smaller screens. */
+
+@media (max-width: 768px) {
+#board {
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+}
+
+@media (max-width: 480px) {
+    #board {
+        width: auto;
+        height: auto; 
+        margin: auto;
+    }
+}
+
+@media (max-width: 320px) {
+    #board {
+        width: auto;
+        height: auto; 
+        margin: auto;
+    }
+}
+
