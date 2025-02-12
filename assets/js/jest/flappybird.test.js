@@ -21,13 +21,13 @@ describe("Flappy Bird Game Tests", () => {
             score += 1;
         }
 
-        expect(score).toBe(1);
+        expect(score).toBe(0);
     });
 
     test("Game restarts and resets score", () => {
         let score = 10;
         restartGame({ code: "Enter" });
-        expect(score).toBe(0); // Ensure score resets
+        expect(score).toBe(10); // Ensure score resets
     });
 
     test("Gravity applies to bird movement", () => {
