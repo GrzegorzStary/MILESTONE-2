@@ -59,17 +59,20 @@ window.onload = function () {
 
     document.addEventListener("keydown", startGame);
     document.addEventListener("mousedown", startGame);
+    document.addEventListener("touchstart", startGame);
 };
 
 function startGame(e) {
-    if (!gameStarted && (e.code === "Space" || e.code === "ArrowUp" || e.button === 0)) {
+    if (!gameStarted && (e.code === "Space" || e.code === "ArrowUp" || e.button === 0 || e.type === "touchstart")) {
         gameStarted = true;
         requestAnimationFrame(update);
         setInterval(placePole, 1600);
         document.addEventListener("keydown", moveBird);
         document.addEventListener("mousedown", moveBird);
+        document.addEventListener("touchstart", moveBird);
         document.addEventListener("keydown", restartGame);
         document.addEventListener("mousedown", restartGame);
+        document.addEventListener("touchstart", restartGame);
     }
 }
 
