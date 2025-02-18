@@ -1,7 +1,7 @@
 // Board 
 let board;
-let boardWidth = 450;
-let boardHeight = 780;
+let boardWidth = 430;
+let boardHeight = 750;
 let context;
 
 // Bird
