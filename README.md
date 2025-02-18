@@ -35,7 +35,54 @@ The target audience for this game includes players of all ages who enjoy casual,
 *Compete against themselves or others by improving their high scores and striving for better performance.
 *Engage in a lightweight, browser-friendly game that requires no downloads or installations.
 *Pass time in an entertaining way, whether during short breaks, commutes, or leisure moments.
+
 ---
+
+### User Stories:
+
+The game is designed to be an engaging, quick-play experience, likely discovered by users casually rather than as a long-term commitment. It fits seamlessly into a gaming or entertainment website, attracting users for short, repeated sessions before they explore other content.
+
+#### User
+
+I want to play a fun and fast-paced game.
+I want to test my reflexes and reaction time.
+I want to improve my coordination and timing skills.
+I want a game that is easy to learn but challenging to master.
+I want to access and play the game on any device without issues.
+I want the game controls to be simple and responsive.
+I want a smooth, frustration-free experience with minimal lag or glitches.
+
+#### Client
+
+I want to entertain visitors and keep them engaged for longer.
+I want to offer an addictive, replayable experience that encourages return visits.
+I want the game to be accessible and optimized for all modern browsers.
+I want to attract a broad audience, including casual and competitive players.
+I want the site and game to function efficiently, with no technical issues.
+
+---
+
+#### Content
+
+The game consists of a simple yet engaging mechanic, where players control a bird navigating through obstacles by tapping or clicking to stay airborne.
+
+Key elements of the game include:
+
+The Bird: A small, pixel-art character, requiring precise timing to avoid crashing.
+Obstacles: Moving tree trunks that create gaps the player must navigate through.
+Scoring System: Players earn points for each obstacle they successfully pass through, encouraging them to improve their performance. The Best Score feature records the highest score achieved, motivating players to beat their personal best or challenge others for a higher score.
+
+Overview of Page Content
+
+When the game starts, the bird is placed at the starting position, and the player begins tapping to keep it airborne.
+The player must navigate the bird through a series of obstacles (pipes) by tapping or clicking to control its flight.
+Each successful passage through a pair of pipes earns the player one point.
+There is a Best Score tracker that displays the highest score the player has achieved.
+The game ends when the bird collides with an obstacle, and the player’s final score is displayed.
+Highest score is recorded once new score exceedes the old one.
+
+---
+
 
 
 BUGS 1 the birds was not appearing on designed location. 2 the poles are not visible 3 the poles are not moving 4 the game stops when the bird colided the pole
