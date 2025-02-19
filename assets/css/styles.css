@@ -3,7 +3,16 @@ body {
     text-align: center;
 }
 
-div {
+#start {
+    display: flex;
+    background-image: url(../images/startgame.jpg) !important;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
     display: flex;
     background-image: url(../images/playbackground.png);
     background-size: cover;
