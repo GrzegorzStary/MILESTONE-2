@@ -39,7 +39,7 @@ let gameStarted = false;
 let score = 0;
 let bestScore = localStorage.getItem("bestScore") || 0;
 
-// Responsivnes
+// Responsivnes for different screen sizes
 function setScreenDimensions() {
     let screenWidth = window.innerWidth;
 
@@ -65,8 +65,8 @@ function setScreenDimensions() {
         poleWidth = 60;
         gapBetweenPoles = 170;
     } else {
-        boardWidth = 450;
-        boardHeight = 780;
+        boardWidth = 430;
+        boardHeight = 750;
         birdWidth = 45;
         birdHeight = 45;
         poleWidth = 64;
