@@ -131,7 +131,7 @@ function update() {
         drawGameOverMessage();
         return;
     }
-// Animation pole movement
+    // Animation pole movement
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
@@ -152,13 +152,13 @@ function update() {
         let pole = poleArray[i];
         pole.x += velocityX;
         context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
-// Collision 
+        // Collision 
         if (collision(bird, pole)) {
             gameOver = true;
             drawGameOverMessage();
             return;
         }
-// Score update
+        // Score update
         if (!pole.passed && pole.x + pole.width < bird.x && pole.y > 0) {
             pole.passed = true;
             score += 1;
@@ -232,7 +232,7 @@ function drawPlayButton() {
     context.font = "bold 25px Arial";
     context.textAlign = "center";
     context.border = "1px";
-    context.fillText("Press Space or Tap screen to Play!", boardWidth / 2, boardHeight / 2);
+    context.fillText("Press Space or Tap screen to Play!", boardWidth / 2, boardHeight / 2 - 60);
 }
 
 window.addEventListener("resize", function () {
