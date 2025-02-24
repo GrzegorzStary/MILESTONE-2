@@ -8,7 +8,7 @@ body {
     width: 100vw;
 }
 
-/* styles for id index.html */
+/* styles for id index.html background image */
 #start {
     background-image: url(../images/startgame.png);
     background-size: cover;
@@ -97,6 +97,7 @@ a {
 
 /* Styles for MEDIA QUERIES 768px screen */
 @media (max-width: 768px) {
+    /* styles for id index.html background image */
     #start {
         background-image: url(../images/startgame.png) !important;
         background-position: center;
@@ -142,6 +143,7 @@ a {
 
 /* Styles for MEDIA QUERIES 480px screen */
 @media (max-width: 480px) {
+    /* styles for id index.html background image */
     #start {
         background-image: url(../images/startgame.png) !important;
         background-position: center;
@@ -187,6 +189,7 @@ a {
 
 /* Styles for MEDIA QUERIES 375px screen */
 @media (max-width: 375px) {
+    /* styles for id index.html background image */
     #start {
         background-image: url(../images/startgame.png) !important;
         background-position: cover;
