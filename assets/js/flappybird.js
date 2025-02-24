@@ -40,7 +40,7 @@ let score = 0;
 let bestScore = localStorage.getItem("bestScore") || 0;
 
 // Responsiveness for different screen sizes
-function setScreenDimensions() {
+function screenDimensions() {
     let screenWidth = window.innerWidth;
 
     if (screenWidth <= 320) {
@@ -85,7 +85,7 @@ function setScreenDimensions() {
     };
 }
 
-// Prevent zooming and text selection while playing
+// Prevent zooming and text selection while playing on touchscreen
 document.addEventListener("gesturestart", function (e) {
     e.preventDefault();
 });
@@ -106,7 +106,7 @@ window.onload = function () {
     birdImg.src = "./assets/images/flappybird1.png";
     birdImg.onload = function () {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
-        drawPlayButton();
+        playButton();
     };
     // Load Tree trunk images
     topPoleImg = new Image();
@@ -118,6 +118,7 @@ window.onload = function () {
     document.addEventListener("keydown", startGame);
     document.addEventListener("mousedown", startGame);
     document.addEventListener("touchstart", startGame);
+    document.addEventListener("keydown", restartGame);
 };
 
 // Function to start the game
@@ -246,7 +247,8 @@ function collision(a, b) {
 function restartGame(e) {
     if (!gameOver) return;
 
-    if (e.code === "Enter" || e.button === 0 || e.code === "Space") {
+// ONLY ENTER WILL RESTART THE GAME!
+    if (e.code === "Enter") {
         if (score > bestScore) {
             bestScore = score;
             localStorage.setItem("bestScore", bestScore);
@@ -260,15 +262,18 @@ function drawGameOverMessage() {
     context.fillStyle = "white";
     context.font = "bold 40px Arial";
     context.textAlign = "center";
-    context.fillText("!!! GAME OVER !!!", boardWidth / 2, boardHeight / 2 - 40);
+    context.fillText("!!! GAME OVER !!!", boardWidth / 2, boardHeight / 2 - 60);
+
     context.font = "bold 30px Arial";
-    context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 + 20);
-    context.fillText("Best Score: " + bestScore, boardWidth / 2,
-        boardHeight / 2 + 60);
+    context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 - 10);
+    context.fillText("Best Score: " + bestScore, boardWidth / 2, boardHeight / 2 + 30);
+
+    context.font = "bold 25px Arial"; // Reduced font size for better visibility
+    context.fillText("!! PRESS ENTER !!", boardWidth / 2, boardHeight / 2 + 80);
 }
 
 // Start game message
-function drawPlayButton() {
+function playButton() {
     context.fillStyle = "white";
     context.font = "bold 25px Arial";
     context.textAlign = "center";
@@ -279,7 +284,7 @@ function drawPlayButton() {
     );
 }
 // Adjust game screen dimentions
-window.addEventListener("resize", setScreenDimensions);
+window.addEventListener("resize", screenDimensions);
 
 // Module for JEST TESTING (IT RETURNING CONSOLE ERROR but there is no error here)
 module.exports = { collision, restartGame, moveBird, placePole };
