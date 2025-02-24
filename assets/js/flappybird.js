@@ -1,16 +1,16 @@
-// Board
+// Board properties
 let board;
 let boardWidth = 430;
 let boardHeight = 750;
 let context;
 
-// Bird
+// Bird properties
 let birdWidth = 45;
 let birdHeight = 45;
 let birdX = 50;
 let birdY = 200;
 let birdImg;
-
+// Bird object
 let bird = {
     height: birdHeight,
     width: birdWidth,
@@ -18,7 +18,7 @@ let bird = {
     y: birdY
 };
 
-// Poles
+// Pole properties
 let poleArray = [];
 let poleWidth = 64;
 let poleHeight = 512;
@@ -72,7 +72,7 @@ function setScreenDimensions() {
         poleWidth = 64;
         gapBetweenPoles = 180;
     }
-
+    // Resets Bird and Pole starting position
     birdX = 50;
     birdY = boardHeight / 3;
     poleX = boardWidth;
@@ -101,28 +101,30 @@ window.onload = function () {
     board.height = boardHeight;
     context = board.getContext("2d");
 
+    // Load the Blue Bird image
     birdImg = new Image();
     birdImg.src = "./assets/images/flappybird1.png";
     birdImg.onload = function () {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
         drawPlayButton();
     };
-
+    // Load Tree trunk images
     topPoleImg = new Image();
     topPoleImg.src = "./assets/images/treedown.png";
     bottomPoleImg = new Image();
     bottomPoleImg.src = "./assets/images/tree.png";
 
+    // Game controls (event listeners for starting the game)
     document.addEventListener("keydown", startGame);
     document.addEventListener("mousedown", startGame);
     document.addEventListener("touchstart", startGame);
 };
 
-// Function to start and restart the game
+// Function to start the game
 function startGame(e) {
     let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
-                     e.button === 0 || e.type === "touchstart";
-
+        e.button === 0 || e.type === "touchstart";
+    // Game controls (event listeners for bumping the bird)
     if (!gameStarted && isStartKey) {
         gameStarted = true;
         requestAnimationFrame(update);
@@ -130,12 +132,9 @@ function startGame(e) {
         document.addEventListener("keydown", moveBird);
         document.addEventListener("mousedown", moveBird);
         document.addEventListener("touchstart", moveBird);
-        document.addEventListener("keydown", restartGame);
-        document.addEventListener("mousedown", restartGame);
-        document.addEventListener("touchstart", restartGame);
     }
 }
-
+// Loop of the game function
 function update() {
     if (gameOver) {
         drawGameOverMessage();
@@ -145,9 +144,13 @@ function update() {
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
+    // This is applying velocity 
     velocityY += gravity;
+
+    // This is ment to prevent bird from flying off the top of the board canvas
     bird.y = Math.max(bird.y + velocityY, 0);
 
+    // This code is checking if bird fell below game canvas
     if (bird.y > board.height) {
         bird.y = board.height;
         velocityY = 0;
@@ -155,37 +158,37 @@ function update() {
         drawGameOverMessage();
         return;
     }
-
+    // Draw Bird
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
-
+    // Move and draw poles
     for (i = 0; i < poleArray.length; i += 1) {
         let pole = poleArray[i];
         pole.x += velocityX;
         context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
 
-        // Collision detection
+        // Collision detection if bird strikes pole
         if (collision(bird, pole)) {
             gameOver = true;
             drawGameOverMessage();
             return;
         }
 
-        // Score update
+        // Score update after passed pole
         if (!pole.passed && pole.x + pole.width < bird.x && pole.y > 0) {
             pole.passed = true;
             score += 1;
         }
     }
-
+    // Removes passed poles from the screen
     if (poleArray.length > 0 && poleArray[0].x + poleWidth < 0) {
         poleArray.shift();
         poleArray.shift();
     }
-
+    // Display Score (left corner)
     context.fillStyle = "white";
     context.font = "bold 20px Arial";
     context.fillText("Score: " + score, 60, 80);
-
+    // Display Best Score (right corner)
     context.fillStyle = "white";
     context.fillText("Best: " + bestScore, boardWidth - 60, 80);
 }
@@ -222,7 +225,7 @@ function placePole() {
 
     poleArray.push(topPole, bottomPole);
 }
-
+// Function for keeping bird flying
 function moveBird(e) {
     if (gameOver) return;
 
@@ -230,7 +233,7 @@ function moveBird(e) {
         velocityY = -6;
     }
 }
-
+// Collision Function taken from Youtube tutorial
 function collision(a, b) {
     return (
         a.x < b.x + b.width &&
@@ -239,7 +242,7 @@ function collision(a, b) {
         a.y + a.height > b.y
     );
 }
-
+// Function to restart the game
 function restartGame(e) {
     if (!gameOver) return;
 
@@ -261,7 +264,7 @@ function drawGameOverMessage() {
     context.font = "bold 30px Arial";
     context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 + 20);
     context.fillText("Best Score: " + bestScore, boardWidth / 2,
-                     boardHeight / 2 + 60);
+        boardHeight / 2 + 60);
 }
 
 // Start game message
@@ -275,7 +278,8 @@ function drawPlayButton() {
         boardHeight / 2 - 60
     );
 }
-
+// Adjust game screen dimentions
 window.addEventListener("resize", setScreenDimensions);
 
+// Module for JEST TESTING (IT RETURNING CONSOLE ERROR but there is no error here)
 module.exports = { collision, restartGame, moveBird, placePole };
