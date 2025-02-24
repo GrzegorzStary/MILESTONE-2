@@ -119,6 +119,7 @@ window.onload = function () {
     document.addEventListener("mousedown", startGame);
     document.addEventListener("touchstart", startGame);
     document.addEventListener("keydown", restartGame);
+    document.addEventListener("mousedown", restartGame);
 };
 
 // Function to start the game
@@ -230,8 +231,8 @@ function placePole() {
 function moveBird(e) {
     if (gameOver) return;
 
-    if (e.code === "Space" || e.code === "ArrowUp" || e.button === 0) {
-        velocityY = -6;
+    if (e.code === "Space" || e.code === "ArrowUp" || e.button === 0 || e.type === "touchstart") {
+        velocityY = -6.5;
     }
 }
 // Collision Function taken from Youtube tutorial
@@ -247,13 +248,13 @@ function collision(a, b) {
 function restartGame(e) {
     if (!gameOver) return;
 
-// ONLY ENTER WILL RESTART THE GAME!
-    if (e.code === "Enter") {
+// ONLY ENTER / RIHT MOUSE CLICK / TOUCH SCREEN WILL RESTART THE GAME - TO PREVENT ACCIDENTAL GAME RESTART
+    if (e.code === "Enter" || e.button === 2 || e.type === "touchstart") {
         if (score > bestScore) {
             bestScore = score;
             localStorage.setItem("bestScore", bestScore);
         }
-        location.reload();
+        location.reload(); 
     }
 }
 
@@ -262,14 +263,17 @@ function drawGameOverMessage() {
     context.fillStyle = "white";
     context.font = "bold 40px Arial";
     context.textAlign = "center";
-    context.fillText("!!! GAME OVER !!!", boardWidth / 2, boardHeight / 2 - 60);
+    context.fillText("Nice try! Play again?", boardWidth / 2, boardHeight / 2 - 60);
 
     context.font = "bold 30px Arial";
-    context.fillText("Score: " + score, boardWidth / 2, boardHeight / 2 - 10);
+    context.fillText("Your Score: " + score, boardWidth / 2, boardHeight / 2 - 10);
     context.fillText("Best Score: " + bestScore, boardWidth / 2, boardHeight / 2 + 30);
 
     context.font = "bold 25px Arial"; // Reduced font size for better visibility
-    context.fillText("!! PRESS ENTER !!", boardWidth / 2, boardHeight / 2 + 80);
+    context.fillText("!!! PRESS ENTER !!!", boardWidth / 2, boardHeight / 2 + 80);
+
+    context.font = "bold 25px Arial"; // Reduced font size for better visibility
+    context.fillText("OR RIGHT MOUSE BUTTON", boardWidth / 2, boardHeight / 2 + 120);
 }
 
 // Start game message
