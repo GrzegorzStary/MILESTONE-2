@@ -97,18 +97,10 @@ a {
 
 /* Styles for MEDIA QUERIES 768px screen */
 @media (max-width: 768px) {
+
     /* styles for id index.html background image */
     #start {
-        background-image: url(../images/startgame.png) !important;
-        background-position: center;
         background-repeat: repeat;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 50px;
     }
 
     div>h1 {
@@ -143,18 +135,10 @@ a {
 
 /* Styles for MEDIA QUERIES 480px screen */
 @media (max-width: 480px) {
+
     /* styles for id index.html background image */
     #start {
-        background-image: url(../images/startgame.png) !important;
-        background-position: center;
         background-repeat: repeat;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 50px;
     }
 
     div>h1 {
@@ -189,18 +173,10 @@ a {
 
 /* Styles for MEDIA QUERIES 375px screen */
 @media (max-width: 375px) {
+
     /* styles for id index.html background image */
     #start {
-        background-image: url(../images/startgame.png) !important;
-        background-position: cover;
         background-repeat: repeat;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 50px;
     }
 
     div>h1 {
