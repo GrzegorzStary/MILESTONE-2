@@ -1,3 +1,4 @@
+/* General body styles */
 body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
@@ -7,8 +8,9 @@ body {
     width: 100vw;
 }
 
+/* styles for id index.html */
 #start {
-    background-image: url(../images/startgame.png) !important;
+    background-image: url(../images/startgame.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,28 +21,27 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding-top: 50px;
-    border: 5px solid white;
 }
 
-#start-game {
+/* styles for the PLAY BUTTON */
+.start-game {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
-    text-decoration: none;
     border-radius: 15px;
     transition: background-color 0.3s ease;
     font-weight: bold;
 }
 
+/* HOOVER PLAY BUTTON */
 .start-game:hover {
     background-color: #0056b3;
-    text-decoration: none;
-  }
+}
 
 
-
+/* Background image under GAME canvas game.html*/
 .game {
     display: flex;
     background-image: url(../images/playbackground.png);
@@ -53,6 +54,7 @@ body {
     align-items: center;
 }
 
+/* Styles for the canvas (game background, border)*/
 #board {
     background-image: url(../images/background.png);
     border: 5px solid black;
@@ -60,20 +62,170 @@ body {
     background-size: cover;
 }
 
+/* Styles for index.html Title*/
 div>h1 {
-    color: white;
+    font-size: 50px;
+    color: black;
     text-align: center;
     margin: 10px 0;
 }
 
+/* Styles for index.html HOW TO PLAY? */
 div>h2 {
-    color: white;
+    font-size: 40px;
+    color: black;
     text-align: center;
     margin: 10px 0;
 }
 
+/* Styles for index.html GAME INSTRUCTIONS */
 div>h3 {
-    color: white;
+    font-size: 30px;
+    color: black;
     text-align: center;
     margin: 10px 0;
+}
+
+/* Styles for index.html BOTTON INNER TEXT */
+a {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+/* Styles for MEDIA QUERIES 768px screen */
+@media (max-width: 768px) {
+    #start {
+        background-image: url(../images/startgame.png) !important;
+        background-position: center;
+        background-repeat: repeat;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    div>h1 {
+        font-size: 50px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    div>h2 {
+        font-size: 45px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    div>h3 {
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    a {
+        display: flex;
+        justify-content: space-evenly;
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+    }
+}
+
+/* Styles for MEDIA QUERIES 480px screen */
+@media (max-width: 480px) {
+    #start {
+        background-image: url(../images/startgame.png) !important;
+        background-position: center;
+        background-repeat: repeat;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    div>h1 {
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    div>h2 {
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    div>h3 {
+        font-size: 14px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    a {
+        display: flex;
+        justify-content: space-evenly;
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+    }
+}
+
+/* Styles for MEDIA QUERIES 375px screen */
+@media (max-width: 375px) {
+    #start {
+        background-image: url(../images/startgame.png) !important;
+        background-position: cover;
+        background-repeat: repeat;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    div>h1 {
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    div>h2 {
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    div>h3 {
+        font-size: 14px;
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    a {
+        display: flex;
+        justify-content: space-evenly;
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+    }
 }
