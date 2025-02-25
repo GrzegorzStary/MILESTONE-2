@@ -1,16 +1,16 @@
-// Board properties
+// Board properties taken from the Youtube tutorial however adjusted by me for better game experience
 let board;
 let boardWidth = 430;
 let boardHeight = 750;
 let context;
 
-// Bird properties
+// Bird properties taken from the Youtube tutorial however adjusted by me for better game experience
 let birdWidth = 45;
 let birdHeight = 45;
 let birdX = 50;
 let birdY = 200;
 let birdImg;
-// Bird object
+// Bird object taken from the Youtube tutorial entirely fixed for JS Lint
 let bird = {
     height: birdHeight,
     width: birdWidth,
@@ -18,17 +18,17 @@ let bird = {
     y: birdY
 };
 
-// Pole properties
+// Pole properties partially taken from Youtube tutorial
 let poleArray = [];
 let poleWidth = 64;
 let poleHeight = 512;
 let poleX = boardWidth;
-let gapBetweenPoles = 180;
+let gapBetweenPoles = 200; //
 
-let topPoleImg;
-let bottomPoleImg;
+let topPoleImg; //taken from Youtube tutorial
+let bottomPoleImg; // taken from Youtube tutorial
 
-// Game motion
+// Game motion taken from Youtube tutorial
 let velocityX = -2;
 let velocityY = 0;
 let gravity = 0.4;
@@ -93,14 +93,14 @@ document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
 });
 
-// Load images and set up event listeners
+// Load images and set up event listeners taken from Youtube tutorial
 window.onload = function () {
     board = document.getElementById("board");
     board.width = boardWidth;
     board.height = boardHeight;
     context = board.getContext("2d");
 
-    // Load the Blue Bird image
+    // Load the Blue Bird image taken from Youtube tutorial (image changed)
     birdImg = new Image();
     birdImg.src = "./assets/images/flappybird1.png";
     birdImg.onload = function () {
@@ -119,7 +119,7 @@ window.onload = function () {
     document.addEventListener("touchstart", startGame);
     document.addEventListener("keydown", restartGame);
     document.addEventListener("mousedown", restartGame);
-
+}
 // Function to start the game
 function startGame(e) {
     let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
@@ -127,11 +127,11 @@ function startGame(e) {
     // Game controls (event listeners for bumping the bird)
     if (!gameStarted && isStartKey) {
         gameStarted = true;
-        requestAnimationFrame(update);
-        setInterval(placePole, 1700);
-        document.addEventListener("keydown", moveBird);
-        document.addEventListener("mousedown", moveBird);
-        document.addEventListener("touchstart", moveBird);
+        requestAnimationFrame(update); 
+        setInterval(placePole, 1700); //taken from Youtube tutorial adjusted for easier game play
+        document.addEventListener("keydown", moveBird); //taken from Youtube tutorial
+        document.addEventListener("mousedown", moveBird); // added by me    
+        document.addEventListener("touchstart", moveBird); // added by me
     }
 }
 // Loop of the game function
@@ -140,17 +140,17 @@ function update() {
         drawGameOverMessage();
         return;
     }
-
+    // taken from Youtube tutorial
     requestAnimationFrame(update);
     context.clearRect(0, 0, board.width, board.height);
 
-    // This is applying velocity 
+    // This is applying velocity taken from Youtube tutorial
     velocityY += gravity;
 
     // This is ment to prevent bird from flying off the top of the board canvas
     bird.y = Math.max(bird.y + velocityY, 0);
 
-    // This code is checking if bird fell below game canvas
+    // This code is checking if bird fell below game canvas taken from Youtube tutorial
     if (bird.y > board.height) {
         bird.y = board.height;
         velocityY = 0;
@@ -159,8 +159,8 @@ function update() {
         return;
     }
     // Draw Bird
-    context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
-    // Move and draw poles
+    context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height); //taken from Youtube tutorial
+    // Move and draw  poles taken from Youtube tutorial
     for (i = 0; i < poleArray.length; i += 1) {
         let pole = poleArray[i];
         pole.x += velocityX;
@@ -173,7 +173,8 @@ function update() {
             return;
         }
 
-        // Score update after passed pole
+        // Score update after passed pole taken from Youtube tutorial adjusted so 
+        // that score would increment only 1 (one) only
         if (!pole.passed && pole.x + pole.width < bird.x && pole.y > 0) {
             pole.passed = true;
             score += 1;
@@ -205,6 +206,7 @@ function placePole() {
 
     const bottomPoleY = randomTopHeight + gapBetweenPoles;
 
+    //taken from Youtube tutorial
     const topPole = {
         img: topPoleImg,
         x: poleX,
@@ -213,7 +215,7 @@ function placePole() {
         height: randomTopHeight,
         passed: false
     };
-
+    //taken from Youtube tutorial
     const bottomPole = {
         img: bottomPoleImg,
         x: poleX,
@@ -223,17 +225,18 @@ function placePole() {
         passed: false
     };
 
-    poleArray.push(topPole, bottomPole);
+    poleArray.push(topPole, bottomPole); // taken partly from Youtube tutorial but adjusted by me
 }
 // Function for keeping bird flying
 function moveBird(e) {
     if (gameOver) return;
 
+    //taken from Youtube tutorial but updated by me by adding additional buttons to bump the bird
     if (e.code === "Space" || e.code === "ArrowUp" || e.button === 0 || e.type === "touchstart") {
         velocityY = -6;
     }
 }
-// Collision Function taken from Youtube tutorial
+// Collision Function taken from Youtube tutorial but lack of brackets on the tutorial so it did not worked
 function collision(a, b) {
     return (
         a.x < b.x + b.width &&
@@ -267,10 +270,10 @@ function drawGameOverMessage() {
     context.fillText("Your Score: " + score, boardWidth / 2, boardHeight / 2 - 10);
     context.fillText("Best Score: " + bestScore, boardWidth / 2, boardHeight / 2 + 30);
 
-    context.font = "bold 25px Arial"; // Reduced font size for better visibility
+    context.font = "bold 25px Arial"; 
     context.fillText("!!! PRESS ENTER !!!", boardWidth / 2, boardHeight / 2 + 80);
 
-    context.font = "bold 25px Arial"; // Reduced font size for better visibility
+    context.font = "bold 25px Arial"; 
     context.fillText("OR RIGHT MOUSE BUTTON", boardWidth / 2, boardHeight / 2 + 120);
 }
 
