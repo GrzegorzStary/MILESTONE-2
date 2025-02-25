@@ -120,33 +120,6 @@ window.onload = function () {
     document.addEventListener("keydown", restartGame);
     document.addEventListener("mousedown", restartGame);
 
-// Event listener for detecting screen orientation
-    document.addEventListener("orientationchange", function () {
-        if (window.orientation === 90 || window.orientation === -90) {
-            // Landscape mode
-            console.log("Landscape mode");
-            document.body.classList.add("landscape");
-            document.body.classList.remove("portrait");
-            
-            // Landscape mode game adjustments
-            boardWidth = window.innerWidth;
-            boardHeight = window.innerHeight;
-        } else {
-            // Portrait mode
-            console.log("Portrait mode");
-            document.body.classList.add("portrait");
-            document.body.classList.remove("landscape");
-
-            // Reset board dimensions for portrait mode
-            screenDimensions(); // Calls existing function for responsive sizing
-        }
-        // Apply changes to the board
-        board.width = boardWidth;
-        board.height = boardHeight;
-        context.clearRect(0, 0, board.width, board.height);
-    });
-};
-
 // Function to start the game
 function startGame(e) {
     let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
@@ -155,7 +128,7 @@ function startGame(e) {
     if (!gameStarted && isStartKey) {
         gameStarted = true;
         requestAnimationFrame(update);
-        setInterval(placePole, 1600);
+        setInterval(placePole, 1700);
         document.addEventListener("keydown", moveBird);
         document.addEventListener("mousedown", moveBird);
         document.addEventListener("touchstart", moveBird);
@@ -273,13 +246,13 @@ function collision(a, b) {
 function restartGame(e) {
     if (!gameOver) return;
 
-// ONLY ENTER / RIHT MOUSE CLICK / TOUCH SCREEN WILL RESTART THE GAME - TO PREVENT ACCIDENTAL GAME RESTART
+    // ONLY ENTER / RIHT MOUSE CLICK / TOUCH SCREEN WILL RESTART THE GAME - TO PREVENT ACCIDENTAL GAME RESTART
     if (e.code === "Enter" || e.button === 2 || e.type === "touchstart") {
         if (score > bestScore) {
             bestScore = score;
             localStorage.setItem("bestScore", bestScore);
         }
-        location.reload(); 
+        location.reload();
     }
 }
 
