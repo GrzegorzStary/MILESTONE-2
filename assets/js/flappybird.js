@@ -49,21 +49,21 @@ function screenDimensions() {
         birdWidth = 30;
         birdHeight = 30;
         poleWidth = 50;
-        gapBetweenPoles = 140;
+        gapBetweenPoles = 180;
     } else if (screenWidth <= 480) {
         boardWidth = 375;
         boardHeight = 668;
         birdWidth = 35;
         birdHeight = 35;
         poleWidth = 55;
-        gapBetweenPoles = 160;
+        gapBetweenPoles = 180;
     } else if (screenWidth <= 768) {
         boardWidth = 768;
         boardHeight = 668;
         birdWidth = 40;
         birdHeight = 40;
         poleWidth = 60;
-        gapBetweenPoles = 170;
+        gapBetweenPoles = 180;
     } else {
         boardWidth = 430;
         boardHeight = 750;
