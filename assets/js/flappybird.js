@@ -84,6 +84,20 @@ function screenDimensions() {
         y: birdY
     };
 }
+// Event Listener for landscape or portrait mode.
+document.addEventListener("orientationchange", function () {
+    if (window.orientation === 90 || window.orientation === -90) {
+        // Landscape mode
+        console.log("Landscape mode detected");
+        document.body.classList.add("landscape");
+        document.body.classList.remove("portrait");
+    } else {
+        // Portrait mode
+        console.log("Portrait mode detected");
+        document.body.classList.add("portrait");
+        document.body.classList.remove("landscape");
+    }
+});
 
 // Prevent zooming and text selection while playing on touchscreen
 document.addEventListener("gesturestart", function (e) {
