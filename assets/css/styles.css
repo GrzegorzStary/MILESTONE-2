@@ -208,3 +208,16 @@ a {
         font-size: 30px;
     }
 }
+/* CSS code for the landscape mode game on the mobile devices CSS tricks */
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      height: 100vw;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
