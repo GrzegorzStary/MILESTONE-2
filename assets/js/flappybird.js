@@ -84,21 +84,6 @@ function screenDimensions() {
         y: birdY
     };
 }
-// Event Listener for landscape or portrait mode.
-document.addEventListener("orientationchange", function () {
-    if (window.orientation === 90 || window.orientation === -90) {
-        // Landscape mode
-        console.log("Landscape mode detected");
-        document.body.classList.add("landscape");
-        document.body.classList.remove("portrait");
-    } else {
-        // Portrait mode
-        console.log("Portrait mode detected");
-        document.body.classList.add("portrait");
-        document.body.classList.remove("landscape");
-    }
-});
-
 // Prevent zooming and text selection while playing on touchscreen
 document.addEventListener("gesturestart", function (e) {
     e.preventDefault();
@@ -134,6 +119,32 @@ window.onload = function () {
     document.addEventListener("touchstart", startGame);
     document.addEventListener("keydown", restartGame);
     document.addEventListener("mousedown", restartGame);
+
+// Event listener for detecting screen orientation
+    document.addEventListener("orientationchange", function () {
+        if (window.orientation === 90 || window.orientation === -90) {
+            // Landscape mode
+            console.log("Landscape mode");
+            document.body.classList.add("landscape");
+            document.body.classList.remove("portrait");
+            
+            // Landscape mode game adjustments
+            boardWidth = window.innerWidth;
+            boardHeight = window.innerHeight;
+        } else {
+            // Portrait mode
+            console.log("Portrait mode");
+            document.body.classList.add("portrait");
+            document.body.classList.remove("landscape");
+
+            // Reset board dimensions for portrait mode
+            screenDimensions(); // Calls existing function for responsive sizing
+        }
+        // Apply changes to the board
+        board.width = boardWidth;
+        board.height = boardHeight;
+        context.clearRect(0, 0, board.width, board.height);
+    });
 };
 
 // Function to start the game
@@ -246,7 +257,7 @@ function moveBird(e) {
     if (gameOver) return;
 
     if (e.code === "Space" || e.code === "ArrowUp" || e.button === 0 || e.type === "touchstart") {
-        velocityY = -6.5;
+        velocityY = -6;
     }
 }
 // Collision Function taken from Youtube tutorial
