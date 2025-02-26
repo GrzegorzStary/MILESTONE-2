@@ -84,14 +84,10 @@ function screenDimensions() {
         y: birdY
     };
 }
-// Prevent zooming and text selection while playing on touchscreen
-document.addEventListener("gesturestart", function (e) {
-    e.preventDefault();
-});
-
-document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-});
+// Prevent zooming and text selection while playing on touchscreen shorthand version
+["gesturestart", "contextmenu"].forEach(event => 
+    document.addEventListener(event, e => e.preventDefault())
+);
 
 // Load images and set up event listeners taken from Youtube tutorial
 window.onload = function () {
@@ -119,7 +115,9 @@ window.onload = function () {
     document.addEventListener("touchstart", startGame);
     document.addEventListener("keydown", restartGame);
     document.addEventListener("mousedown", restartGame);
-    document.addEventListener("touchstart", restartGame);
+    document.addEventListener("touchstart", restartGame); // I dont know how adding this restartGame "Fixed" -
+    // Best score update on the small/touch screen BUT IT WORKS... (I am guessing that touchstart restartGame is directly corelated 
+    // with localStorage that after pressing will restart the game and update Best score!)
 }
 // Function to start the game (BUTTONS)
 function startGame(e) {
