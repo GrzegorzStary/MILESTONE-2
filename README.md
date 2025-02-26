@@ -264,6 +264,55 @@ Implement a feature where multiple players can enter their names, and their scor
 | 5 | I want my best score to be recorded | Your best score is displayed in the top-right corner throughout the game. |
 | 6| I want summary of my game after bird strike | The final screen after the bird crashes displays your latest score, best score, and simple instructions on how to restart the game. |
 
+
+#### User Story 1: I want to be able to control the bird's movement
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Flappy bird | Keep on tapping space bar, touchscreen or left mouse button | Bird is jumping | Works as expected |
+
+![STORY 1](assets/readme/images/game3.png)
+
+#### User Story 2: I want to see my current score displayed at the top of the screen
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Flappy bird | While playing the game look left top corner | Score is updating | Works as expected |
+
+![STORY 2](assets/readme/images/game3.png)
+
+#### User Story 3: I want the game to end when the bird hits an obstacle
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Flappy bird | After tree strike game stops | Game is stopped | Works as expected |
+
+![STORY 3](assets/readme/images/game4.png)
+
+#### User Story 4: I want to be able to restart the game immediately after losing
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Flappy bird | When your game summary is displayed follow short instructions below i.e. press Enter | Game restarts | Works as expected |
+
+![STORY 4](assets/readme/images/game4.png)
+
+#### User Story 5: I want my best score to be recorded
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Flappy bird | Your best scorwe will be updated once you pass first opsticle, or when you will beat your previous best score | Quick wiev on your best score on the top right corner | Works as expected |
+
+![STORY 5](assets/readme/images/game3.png)
+
+#### User Story 6: I want summary of my game after bird strike
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Flappy bird | After birds strike you will see your game summary | See the summary | Works as expected |
+
+![STORY 6](assets/readme/images/game4.png)
+
 ---
 
 ## Deployment
