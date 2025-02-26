@@ -229,16 +229,19 @@ Implement a feature where multiple players can enter their names, and their scor
 ### JS LINT
 
 ![JS Lint](assets/readme/images/jslintvalid.png)
+#### Warning: Due to JEST testing, I was unable to find a proper solution for this issue. A similar issue also appears in the console.
 
 ### JEST
 
 ![JEST](assets/readme/images/jest.png)
 
-### WAVE Acce
+### WAVE Accessibility
 
 ![WAVE](assets/readme/images/wave1.png)
 ![WAVE](assets/readme/images/wave2.png)
 ![WAVE](assets/readme/images/wave3.png)
+
+#### No errors or contrast issues present on any of the pages.
 
 ### LIGHTHOUSE PERFORMANCE
 
@@ -247,11 +250,6 @@ Implement a feature where multiple players can enter their names, and their scor
 ![LIGHT](assets/readme/images/lighthouse3.png)
 
 ---
-
-IMAGE SOURCE
-* cleanpng.com
-* pngegg.com
-* freepik.com
 
 CODE SOURCE: 
 * Kenny Yip Coding Flappy Bird JAVA SCRIPT THAT BEEN CLEARLY INDICATED THROUGOUT THE LINES OF CODE
