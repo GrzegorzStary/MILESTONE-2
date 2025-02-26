@@ -315,6 +315,31 @@ Implement a feature where multiple players can enter their names, and their scor
 
 ---
 
+### Feature Testing
+
+#### **Browser Compatibility**
+
+* Mozilla Firefox
+* Opera
+* Safari
+* Chrome
+* Internet Explorer 
+
+##### **Responsiveness / Device Testing**
+
+The site was tested on the following devices
+
+* Apple Macbook PRO M3 2023
+* Apple Macbook Air 2021 
+* Apple iPhone 13
+* Apple iPhone 12
+* Apple iPad mini
+* Oppo A17
+* Samsung Galaxy S9
+* Samsung Galaxy Note 3
+
+---
+
 ## Deployment
 
 ### GitHub Pages
