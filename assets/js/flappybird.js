@@ -282,7 +282,7 @@ function playButton() {
     context.font = "bold 25px Arial";
     context.textAlign = "center";
     context.fillText(
-        "Press Space or Tap screen to Play!",
+        "Press Space or Tap screen!",
         boardWidth / 2,
         boardHeight / 2 - 60
     );
