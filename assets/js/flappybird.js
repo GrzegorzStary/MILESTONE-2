@@ -113,14 +113,15 @@ window.onload = function () {
     bottomPoleImg = new Image();
     bottomPoleImg.src = "./assets/images/tree.png";
 
-    // Game controls (event listeners for starting the game)
+    // Game controls (event listeners for starting and restarting the game)
     document.addEventListener("keydown", startGame);
     document.addEventListener("mousedown", startGame);
     document.addEventListener("touchstart", startGame);
     document.addEventListener("keydown", restartGame);
     document.addEventListener("mousedown", restartGame);
+    document.addEventListener("touchstart", restartGame);
 }
-// Function to start the game
+// Function to start the game (BUTTONS)
 function startGame(e) {
     let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
         e.button === 0 || e.type === "touchstart";
@@ -245,7 +246,7 @@ function collision(a, b) {
         a.y + a.height > b.y
     );
 }
-// Function to restart the game
+// Function to restart the game (BUTTONS)
 function restartGame(e) {
     if (!gameOver) return;
 
