@@ -213,8 +213,8 @@ Implement a feature where multiple players can enter their names, and their scor
 * 4 Game not stops when the bird colided the pole
 * 5 The best score counter not saving/updating the best score
 * 6 Game restart on the touchscreen is not working
-* 7. Best score counter not working on the smallscreen. 
-* 8. JEST TERSTING FAILS DUE TO WRONG VALUE PROVIDED AND RECEIVED. AS WELL AS WRONG FILE NAME (not linked to the testing file).
+* 7 Best score counter not working on the smallscreen. 
+* 8 JEST TERSTING FAILS DUE TO WRONG VALUE PROVIDED AND RECEIVED. AS WELL AS WRONG FILE NAME (not linked to the testing file).
 ---
 ### HTML VALIDATOR
 
