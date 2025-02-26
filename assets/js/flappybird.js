@@ -205,23 +205,23 @@ function placePole() {
 
     const bottomPoleY = randomTopHeight + gapBetweenPoles;
 
-    //taken from Youtube tutorial
+    //taken from Youtube tutorial adjusted for Lint by me
     const topPole = {
-        img: topPoleImg,
-        x: poleX,
-        y: 0,
-        width: poleWidth,
         height: randomTopHeight,
-        passed: false
-    };
-    //taken from Youtube tutorial
-    const bottomPole = {
-        img: bottomPoleImg,
-        x: poleX,
-        y: bottomPoleY,
+        img: topPoleImg,
+        passed: false,
         width: poleWidth,
+        x: poleX,
+        y: 0
+    };
+    //taken from Youtube tutorial adjusted for Lint by me
+    const bottomPole = {
         height: poleHeight,
-        passed: false
+        img: bottomPoleImg,
+        passed: false,
+        width: poleWidth,
+        x: poleX,
+        y: bottomPoleY
     };
 
     poleArray.push(topPole, bottomPole); // taken partly from Youtube tutorial but adjusted by me
