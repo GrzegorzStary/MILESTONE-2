@@ -204,17 +204,48 @@ Implement a feature where multiple players can enter their names, and their scor
 
 ---
 
+## Testing & Bugs
 
-
-BUGS 
+### BUGS 
 * 1 Bird was not appearing on designed location.
 * 2 Poles are not visible
 * 3 Poles are not moving
 * 4 Game not stops when the bird colided the pole
 * 5 The best score counter not saving/updating the best score
 * 6 Game restart on the touchscreen is not working
-* 7. Best score counter not working on the smallscreen... :( 
+* 7. Best score counter not working on the smallscreen. 
 * 8. JEST TERSTING FAILS DUE TO WRONG VALUE PROVIDED AND RECEIVED. AS WELL AS WRONG FILE NAME (not linked to the testing file).
+---
+### HTML VALIDATOR
+
+![INDEX](assets/readme/images/indexvalid.png)
+![GAME](assets/readme/images/gamevalid.png)
+![404](assets/readme/images/404valid.png)
+
+### CSS VALIDATOR
+
+![CSS](assets/readme/images/cssvalid.png)
+
+### JS LINT
+
+![JS Lint](assets/readme/images/jslintvalid.png)
+
+### JEST
+
+![JEST](assets/readme/images/jest.png)
+
+### WAVE Acce
+
+![WAVE](assets/readme/images/wave1.png)
+![WAVE](assets/readme/images/wave2.png)
+![WAVE](assets/readme/images/wave3.png)
+
+### LIGHTHOUSE PERFORMANCE
+
+![LIGHT](assets/readme/images/lighthouse1.png)
+![LIGHT](assets/readme/images/lighthouse2.png)
+![LIGHT](assets/readme/images/lighthouse3.png)
+
 ---
 
 IMAGE SOURCE
