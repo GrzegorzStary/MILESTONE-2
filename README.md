@@ -1,5 +1,5 @@
 # Flappy Bird Game
-![Mock-up](IMAGE HERE)
+![Mock-up](assets/readme/images/mockup1.png)
 
 [Click here to view the application](https://grzegorzstary.github.io/MILESTONE-2/)
 This documentation covers my web application: Flappy Bird. It is a browser-based game built using HTML5, CSS3, and JavaScript
@@ -122,11 +122,40 @@ All pages have a blue background to enhance the feeling of consistency. I tried 
 
 ### Languages
 
-* [HTML](https://en.wikipedia.org/wiki/HTML5)
-* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* HTML
+* CSS
+* JavaScript
 
 ### Tools
+
+* [GitHub](https://github.com/)
+  * Used to store the project code after being created in GitPod/Git.
+* [Gitpod](https://www.gitpod.io/)
+  * Used for creating, editing, and previewing the project's code.
+* [Balsamiq](https://www.balsamiq.com/)
+  * Used to develop wireframes into a full mockup, including colors, fonts, and proportions.
+* [Techsini Mockup](https://techsini.com/multi-mockup/)
+  * Used to generate mockup images for the README.md.
+* [Google Chrome](https://google.com/chrome)
+  * Used as the default web browser, for development tools, and for testing via the Lighthouse service.
+* [WAVE](https://https://wave.webaim.org/)
+  * Used for accessibility testing and generating accessibility reports.
+* [JSLint](https://jslint.com)
+  * Used to verify JavaScript code and identify errors during testing.
+* [W3C HTML Validator service](https://https://validator.w3.org/)
+  * Used to validate HTML code and detect errors or warnings.
+* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+  * Used to validate CSS code and ensure compliance with web standards.
+* [Youtube](https://www.youtube.com/watch?v=jj5ADM2uywg)
+  * Used for tutorials, including "Create Flappy Bird in JavaScript, HTML, and CSS."
+* [Cleanpng] (cleanpng.com)
+* [PngEgg] (pngegg.com)
+* [Freepik] (freepik.com)
+  * Used to source images for the project.
+* [VSCode] (https://code.visualstudio.com/)
+  *  Used as the primary code editor.
+* [ChatGPT] (https://chatgpt.com)
+  * Used for solving minor code issues and checking grammar in the README file.
 
 ---
 
