@@ -5,7 +5,69 @@
 
 This documentation covers my web application: Flappy Bird. It is a browser-based game built using HTML5, CSS3, and JavaScript
 ---
-## Table of Contents
+
+## **Table of Contents**  
+
+1. **[Flappy Bird Game Overview](#flappy-bird-game-overview)**  
+   - [Mock-up](#mock-up)  
+   - [Live Application Link](#live-application-link)  
+
+2. **[Project Development & Planning](#project-development--planning)**  
+   - [Project Goals](#project-goals)  
+   - [Project Purpose](#project-purpose)  
+   - [Client Goals](#client-goals)  
+   - [User Goals](#user-goals)  
+
+3. **[User Stories](#user-stories)**  
+
+4. **[Content Overview](#content-overview)**  
+
+5. **[Design, Layout & Structure](#design-layout--structure)**  
+   - [Wireframes](#wireframes)  
+   - [Structure](#structure)  
+   - [Color & Design](#color--design)  
+
+6. **[Technologies Used](#technologies-used)**  
+   - [Languages](#languages)  
+   - [Tools](#tools)  
+
+7. **[Features](#features)**  
+   - [All Sections/Pages](#all-sectionspages)  
+   - [Favicon](#favicon)  
+   - [Index.html](#indexhtml)  
+   - [Game.html](#gamehtml)  
+   - [Game.html - In Game](#gamehtml---in-game)  
+   - [Game.html - After Obstacle Strike](#gamehtml---after-obstacle-strike)  
+   - [404.html](#404html)  
+
+8. **[Future Features](#future-features)**  
+   - Multiple Difficulty Levels  
+   - Change Bird's Skin and Background  
+   - Life System  
+   - Landscape Mode Support  
+   - Best Scoreboard  
+
+9. **[Testing & Bugs](#testing--bugs)**  
+   - [Identified Bugs](#identified-bugs)  
+   - [HTML Validation](#html-validation)  
+   - [CSS Validation](#css-validation)  
+   - [JavaScript Linting](#javascript-linting)  
+   - [Jest Testing](#jest-testing)  
+   - [WAVE Accessibility Testing](#wave-accessibility-testing)  
+   - [Lighthouse Performance Testing](#lighthouse-performance-testing)  
+
+10. **[Manual Testing](#manual-testing)**  
+    - [User Stories & Test Results](#user-stories--test-results)  
+
+11. **[Feature Testing](#feature-testing)**  
+    - [Browser Compatibility](#browser-compatibility)  
+    - [Responsiveness / Device Testing](#responsiveness--device-testing)  
+
+12. **[Deployment](#deployment)**  
+    - [GitHub Pages Deployment](#github-pages-deployment)  
+    - [Forking the Repository](#forking-the-repository)  
+    - [Cloning the Repository](#cloning-the-repository)  
+
 
 ---
 ## Project Development & Planning
