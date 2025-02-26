@@ -251,6 +251,21 @@ Implement a feature where multiple players can enter their names, and their scor
 
 ---
 
+## Manual Testing
+
+### User Stories
+
+| No. | User Goal | How is it achieved? |
+| :--- | :--- | :--- |
+| 1 | I want to be able to control the bird's movement | This can be done by pressing the space bar, left mouse click, or tapping the screen. |
+| 2 | I want to see my current score displayed at the top of the screen | Your current score is displayed in the top-left corner throughout the game. |
+| 3 | I want the game to end when the bird hits an obstacle | The game ends instantly when the bird hits an obstacle. |
+| 4 | I want to be able to restart the game immediately after losing | To restart, the player must press a specific button (Enter, Right mouse button or Tap the screen). |
+| 5 | I want my best score to be recorded | Your best score is displayed in the top-right corner throughout the game. |
+| 6| I want summary of my game after bird strike | The final screen after the bird crashes displays your latest score, best score, and simple instructions on how to restart the game. |
+
+---
+
 ## Deployment
 
 ### GitHub Pages
