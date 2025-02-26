@@ -251,5 +251,46 @@ Implement a feature where multiple players can enter their names, and their scor
 
 ---
 
-CODE SOURCE: 
-* Kenny Yip Coding Flappy Bird JAVA SCRIPT THAT BEEN CLEARLY INDICATED THROUGOUT THE LINES OF CODE
+## Deployment
+
+### GitHub Pages
+
+The site has been deployed to GitHub Pages. Follow these steps to deploy:
+
+Go to the Settings tab in the GitHub repository.
+Select Pages from the left-hand menu.
+Under Source, choose Branch: main.
+Click Save.
+Once published successfully, a live link will be generated.
+
+You can find the live link here: [CLICK!](https://grzegorzstary.github.io/MILESTONE-2/)
+
+### Forking the GitHub Repo
+
+To fork the repository, follow these steps:
+
+Navigate to the GitHub repository.
+Click the Fork button in the upper-right corner.
+
+### Cloning the GitHub Repo
+
+To clone the repository for local use, follow these steps:
+
+1. Open the GitHub repository you want to clone.
+2. Click the Code dropdown button.
+3. Select HTTPS.
+4. Copy the repository link.
+5. Open your preferred IDE (ensure Git is installed).
+6. In the terminal, run:   git clone copied-git-url
+
+The project will now be cloned locally for you to use.
+
+
+1. Navigate to the GitHub Repository you want to clone
+2. Click on the code drop down button
+3. Click on HTTPS
+4. Copy the repository link to the clipboard
+5. Open your IDE of choice (git must be installed for the next steps)
+6. Type git clone copied-git-url into the IDE terminal
+
+The project will now be cloned locally for you to use.
