@@ -2,6 +2,7 @@
 ![Mock-up](assets/readme/images/mockup1.png)
 
 [Click here to view the application](https://grzegorzstary.github.io/MILESTONE-2/)
+
 This documentation covers my web application: Flappy Bird. It is a browser-based game built using HTML5, CSS3, and JavaScript
 ---
 ## Table of Contents
@@ -142,23 +143,45 @@ All pages have a blue background to enhance the feeling of consistency. I tried 
   * Used for accessibility testing and generating accessibility reports.
 * [JSLint](https://jslint.com)
   * Used to verify JavaScript code and identify errors during testing.
-* [W3C HTML Validator service](https://https://validator.w3.org/)
+* [W3C HTML Validator](https://https://validator.w3.org/)
   * Used to validate HTML code and detect errors or warnings.
-* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+* [W3C CSS Validation](https://jigsaw.w3.org/css-validator/)
   * Used to validate CSS code and ensure compliance with web standards.
 * [Youtube](https://www.youtube.com/watch?v=jj5ADM2uywg)
   * Used for tutorials, including "Create Flappy Bird in JavaScript, HTML, and CSS."
-* [Cleanpng] (cleanpng.com)
-* [PngEgg] (pngegg.com)
-* [Freepik] (freepik.com)
+* [Cleanpng](https://www.cleanpng.com/)
+* [PngEgg](https://www.pngegg.com/)
+* [Freepik](https://www.freepik.com/)
   * Used to source images for the project.
-* [VSCode] (https://code.visualstudio.com/)
+* [VSCode](https://code.visualstudio.com/)
   *  Used as the primary code editor.
-* [ChatGPT] (https://chatgpt.com)
+* [ChatGPT](https://chatgpt.com)
   * Used for solving minor code issues and checking grammar in the README file.
 
 ---
 
+## Features
+
+### All Sections/Pages
+
+#### **Favicon**
+![TAB FAV ICON](assets/readme/images/fav.png)
+
+The favicon remains consistent across all three pages.
+#### **Index.html**
+![INDEX.html](assets/readme/images/game1.png)
+
+#### **Game.html**
+![Game.html](assets/readme/images/game2.png)
+
+#### **Game.html - in game**
+![Game.html](assets/readme/images/game3.png)
+
+#### **Game.html - after obsticle strike**
+![Game.html](assets/readme/images/game4.png)
+
+#### **404.html**
+![404.html](assets/readme/images/game5.png)
 
 
 BUGS 
