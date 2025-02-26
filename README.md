@@ -183,6 +183,28 @@ The favicon remains consistent across all three pages.
 #### **404.html**
 ![404.html](assets/readme/images/game5.png)
 
+---
+
+### Future Features
+
+#### Multiple Difficulty Levels
+Allow the player to choose a difficulty level at the start, adjusting game mechanics accordingly. Alternatively, make the game progressively harder as the player advances, increasing speed, obstacle frequency, or other challenges.
+
+#### Change the bird's skin and background
+This means the player can select different bird designs and background themes before playing, giving them control over the game's appearance.
+
+#### Life system that allows the player to continue after hitting a tree
+This means the player gets extra chances (e.g., 3 lives) before the game fully ends, making it more forgiving and allowing them to resume after a mistake.
+
+#### Add support for landscape mode
+This will allow the game to adapt to different screen orientations, giving players more flexibility. Currently, the game is designed for portrait mode only. Due to time constraints, I couldn't resolve the issue. I explored a few ideas, but after testing, I decided to abandon them.
+
+#### Best score board
+Implement a feature where multiple players can enter their names, and their scores will be saved after the game ends. This will include a Top 10 leaderboard to display the highest scores.
+
+---
+
+
 
 BUGS 
 * 1 Bird was not appearing on designed location.
