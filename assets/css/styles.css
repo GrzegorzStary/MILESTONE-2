@@ -64,15 +64,13 @@ body {
 
 /* Styles for the 404.html I wanted to look simple but not completely empty*/
 .error-page {
-    display: flex;
     background-image: url(../images/playbackground.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     max-width: 100%;
     max-height: 100%;
-    justify-content: center;
-    align-items: center;
+
 }
 
 /* Styles for index.html Title*/
