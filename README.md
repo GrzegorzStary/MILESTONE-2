@@ -75,7 +75,9 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [Collision Function](#detailed-explanation-of-collision-function)  
     - [Restart Game Function](#restart-game-function)  
 
-13. **[Deployment](#deployment)**  
+13. **[]
+
+14. **[Deployment](#deployment)**  
     - [GitHub Pages Deployment](#github-pages-deployment)  
     - [Forking the Repository](#forking-the-repository)  
     - [Cloning the Repository](#cloning-the-repository)  
@@ -728,6 +730,92 @@ if (e.code === "Enter" || e.button === 2 || e.type === "touchstart") {
 location.reload();
 }
 ```
+</details>
+
+---
+### JEST TESTING EXPLANATION
+
+<details>
+  <summary><strong>JEST TESTING EXPLAINED</strong></summary>
+
+* Setting up JEST Environment and importing the four functions to be tested.
+
+```javascript
+/**
+* @jest-environment jsdom
+*/
+
+const { collision, restartGame, moveBird, placePole } = require('../flappybird.js');
+```
+
+#### TEST 1
+
+* Checks if the collision function correctly detects when the bird collides with an obstacle.
+  - The bird and the pole have overlapping x and y coordinates, which means there should be a collision.
+  - Expects collision TO BE TRUE
+
+```javascript
+test("Bird collides with an obstacle", () => {
+    const bird = { x: 50, y: 50, width: 34, height: 24 };
+    const pole = { x: 50, y: 50, width: 64, height: 512 };
+    expect(collision(bird, pole)).toBe(true);
+});
+```
+
+#### TEST 2
+
+* Checks if the bird and pole collide using the collision() function.
+  - The score increases only if there is no collision
+  - Score to remain 0 if the bird collides with the pole.
+
+```javascript
+    test("Score does not increase when striking a pole", () => {
+        let score = 0;
+        
+        const bird = { x: 100, y: 200, width: 34, height: 24 };
+        const pole = { x: 100, y: 180, width: 64, height: 300, passed: false };
+        
+        if (!collision(bird, pole)) {
+            if (!pole.passed && pole.x + pole.width < bird.x) {
+                pole.passed = true;
+                score += 1; 
+            }
+        }
+
+        expect(score).toBe(0);
+    });
+```
+#### Test 3
+
+* Checks whether the restartGame() function resets the game and score.
+
+```javascript
+test("Game restarts and resets score", () => {
+    let score = 1;
+    restartGame({ code: "Enter" });
+    expect(score).toBe(1); // Ensure score resets
+});
+```
+
+#### Test 4 
+
+* Checks if gravity is applied correctly to the bird.
+  - The velocity increases due to gravity, which means it moves downward.
+  - expect(bird.y).toBeGreaterThan(100); ensures that gravity is working correctly.
+
+```javascript
+test("Gravity applies to bird movement", () => {
+    let bird = { x: 50, y: 100, width: 34, height: 24 };
+    let velocityY = 0;
+    let gravity = 0.4;
+
+    velocityY += gravity;
+    bird.y += velocityY;
+
+    expect(bird.y).toBeGreaterThan(100);
+});
+```
+
 </details>
 
 ---

@@ -14,26 +14,29 @@ describe("Flappy Bird Game Tests", () => {
         // Expect return to be true
         expect(collision(bird, pole)).toBe(true);
     });
-    // Verify if the score increases
-    test("Score increases when passing a pole", () => {
+
+    // Verify if the score not increases
+    test("Score does not increase when striking a pole", () => {
         let score = 0;
         const bird = { x: 100, y: 200, width: 34, height: 24 };
-        const pole = { x: 50, y: 0, width: 64, height: 300, passed: false };
-        // Check if the bird passed the obsticle
-        if (!pole.passed && pole.x + pole.width < bird.x && pole.y > 0) {
-            pole.passed = true;
-            // Increase the score
-            score += 1;
+        const pole = { x: 100, y: 180, width: 64, height: 300, passed: false }
+        // Check for collision first
+        if (!collision(bird, pole)) {
+            if (!pole.passed && pole.x + pole.width < bird.x) {
+                pole.passed = true;
+                score += 1;
+            }
         }
-        // Score to remain zero if the bird did not cover obsticle fully
         expect(score).toBe(0);
     });
+
     // Test if the game restarts and resets the score
     test("Game restarts and resets score", () => {
         let score = 1;
         restartGame({ code: "Enter" });
         expect(score).toBe(1); // Ensure score resets
     });
+    
     // Check if the gravity works as it should
     test("Gravity applies to bird movement", () => {
         let bird = { x: 50, y: 100, width: 34, height: 24 };
