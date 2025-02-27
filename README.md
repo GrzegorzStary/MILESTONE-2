@@ -8,6 +8,9 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
 
 ## **Table of Contents**  
 
+<details>
+  <summary><strong>Table of contents</strong></summary>
+
 1. **[Flappy Bird Game Overview](#flappy-bird-game-overview)**  
    - [Mock-up](#mock-up)  
    - [Live Application Link](#live-application-link)  
@@ -77,6 +80,7 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [Forking the Repository](#forking-the-repository)  
     - [Cloning the Repository](#cloning-the-repository)  
 
+</details>
 ---
 ## Project Development & Planning
 
