@@ -633,6 +633,26 @@ const bottomPole = {
 ```javascript
 poleArray.push(topPole, bottomPole);
 ```
+
+### restartGame Function
+
+* If game is still running this prevents accidental restarts while the game is still running.
+* Restricting Restart to Specific Inputs --> Prevents unintentional game restarts caused by accidental key presses or mouse clicks.
+* Checks if the player's score is greater than the best score, updates the score and saves it to local storage.
+* location.reload() --> Resetting all game elements.
+
+```javascript
+if (!gameOver) return;
+
+if (e.code === "Enter" || e.button === 2 || e.type === "touchstart") {
+  if (score > bestScore) {
+    bestScore = score;
+    localStorage.setItem("bestScore", bestScore);
+}
+
+location.reload();
+}
+```
 ---
 ## Deployment
 
