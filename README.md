@@ -492,7 +492,7 @@ bottomPoleImg.src = "./assets/images/tree.png";
     document.addEventListener("keydown", restartGame);
     document.addEventListener("mousedown", restartGame);
     document.addEventListener("touchstart", restartGame);
-    ```
+  ```
 ---
 ## Deployment
 
