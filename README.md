@@ -154,6 +154,24 @@ Overview of Page Content
 
 #### **Wireframes**
 
+
+#### **index.html Desktop**
+![Desktop](assets/readme/images/startpage.png)
+
+#### **index.html Mobile**
+![Mobile](assets/readme/images/startpage_mobile.png)
+
+#### **game.html Desktop**
+![Desktop](assets/readme/images/gamepage.png)
+
+#### **game.html Mobile**
+![Mobile](assets/readme/images/gamepage_mobile.png)
+
+#### **404.html Desktop**
+![Desktop](assets/readme/images/404.png)
+
+#### **404.html Mobile**
+![Mobile](assets/readme/images/404mobile.png)
 ---
 
 #### **Structure**
