@@ -422,32 +422,6 @@ The site was tested on the following devices
 ---
 ## JS Functionality explanation 
 
-### Start Game Function 
-
-* The startGame function is responsible for initiating the game
-* The function checks whether the player has pressed the Spacebar, Arrow Up key, left mouse button, or touched the screen.
-* if (!gameStarted && isStartKey) --> IF Game NOT started (!) and player pressed the KEY the game begins.
-* gameStarted = true; --> Marks the game as started.
-* setInterval(placePole, 1700); --> Calls the placePole function every 1.7 seconds to generate obstacles
-* Event Listeners --> Are set to allow user choose one of 3 buttons to start the game and control the bird.
-
-```javascript
-function startGame(e) {
-    let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
-        e.button === 0 || e.type === "touchstart";
-
-    // Game controls (event listeners for bumping the bird)
-    if (!gameStarted && isStartKey) {
-        gameStarted = true;
-        requestAnimationFrame(update);
-        setInterval(placePole, 1700); // Adjusted for easier gameplay
-        document.addEventListener("keydown", moveBird);
-        document.addEventListener("mousedown", moveBird);
-        document.addEventListener("touchstart", moveBird);
-    }
-}
-```
-
 ### Window On Load Function
 
 * Connetcts HTML element with the ID "board"
@@ -493,6 +467,35 @@ bottomPoleImg.src = "./assets/images/tree.png";
     document.addEventListener("mousedown", restartGame);
     document.addEventListener("touchstart", restartGame);
   ```
+  
+### Start Game Function 
+
+* The startGame function is responsible for initiating the game
+* The function checks whether the player has pressed the Spacebar, Arrow Up key, left mouse button, or touched the screen.
+* if (!gameStarted && isStartKey) --> IF Game NOT started (!) and player pressed the KEY the game begins.
+* gameStarted = true; --> Marks the game as started.
+* setInterval(placePole, 1700); --> Calls the placePole function every 1.7 seconds to generate obstacles
+* Event Listeners --> Are set to allow user choose one of 3 buttons to start the game and control the bird.
+
+```javascript
+function startGame(e) {
+    let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
+        e.button === 0 || e.type === "touchstart";
+
+    // Game controls (event listeners for bumping the bird)
+    if (!gameStarted && isStartKey) {
+        gameStarted = true;
+        requestAnimationFrame(update);
+        setInterval(placePole, 1700); // Adjusted for easier gameplay
+        document.addEventListener("keydown", moveBird);
+        document.addEventListener("mousedown", moveBird);
+        document.addEventListener("touchstart", moveBird);
+    }
+}
+```
+
+
+
 ---
 ## Deployment
 
