@@ -76,13 +76,14 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [GitHub Pages Deployment](#github-pages-deployment)  
     - [Forking the Repository](#forking-the-repository)  
     - [Cloning the Repository](#cloning-the-repository)  
-    
+
 ---
 ## Project Development & Planning
 
 In developing this game, I followed User Experience (UX) best practices. My goal was to create a seamless, responsive, and accessible experience, ensuring the website is intuitive and easy to use while effectively meeting both user and client objectives.
 ---
 ### Project Goals
+
 
 ## Project Purpose
 
@@ -159,8 +160,9 @@ Overview of Page Content
 ---
 
 ### Design, Layout & Structure
+<details>
+  <summary><strong>#### **Wireframes**</strong></summary>
 
-#### **Wireframes**
 
 
 #### **index.html Desktop**
@@ -180,6 +182,7 @@ Overview of Page Content
 
 #### **404.html Mobile**
 ![Mobile](assets/readme/images/404mobile.png)
+</details>
 ---
 
 #### **Structure**
