@@ -633,6 +633,33 @@ const bottomPole = {
 ```javascript
 poleArray.push(topPole, bottomPole);
 ```
+### DETAILED EXPLANATION OF COLLISION FUNCTION
+
+#### Checks if two objects are overlapping using conditions A A B B collision detection widely used in 2D games.
+
+* The function considers two rectangular objects, a (bird) and b (obstacle/pole)
+
+* Condition 1: a.x < b.x + b.width --> The left side of a is to the left of the right side of b.
+* Condition 2: a.x + a.width > b.x --> The right side of a is to the right of the left side of b.
+  - If both conditions are met, a and b overlap along the X-axis.
+
+* Condition 3: a.y < b.y + b.height --> The top of a is above the bottom of b.
+* Condition 4: a.y + a.height > b.y --> The bottom of a is below the top of b.
+  - If Condition 3 and Condition 4 are met, a and b overlap along the Y-axis.
+
+* For a collision to be detected, ALL FOUR conditions MUST BE TRUE at the same time.
+
+```javascript
+function collision(a, b) {
+    return (
+        a.x < b.x + b.width && // Condition 1
+        a.x + a.width > b.x && // Condition 2
+        a.y < b.y + b.height && // Condition 3
+        a.y + a.height > b.y // Condition 4
+    );
+}
+
+```
 
 ### restartGame Function
 
