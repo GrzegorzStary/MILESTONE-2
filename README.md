@@ -448,8 +448,51 @@ function startGame(e) {
 }
 ```
 
+### Window On Load Function
 
+* Connetcts HTML element with the ID "board"
+* Sets its width and height
+* Gets the 2D drawing context that allows to render graphics
 
+```javascript
+board = document.getElementById("board");
+board.width = boardWidth;
+board.height = boardHeight;
+context = board.getContext("2d");
+```
+
+* birdImg --> Creates our bird character, line below is source link for our image.
+* birdImg.drawImage --> Is drawing bird image on our canvas
+* playButton() --> providing player with a message how to start the game.
+
+```javascript
+birdImg = new Image();
+birdImg.src = "./assets/images/flappybird1.png";
+birdImg.onload = function () {
+    context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
+    playButton();
+};
+```
+
+*  Loading tree trunk images in similar way as the bird is drawn in above example.
+
+```javascript
+topPoleImg = new Image();
+topPoleImg.src = "./assets/images/treedown.png";
+bottomPoleImg = new Image();
+bottomPoleImg.src = "./assets/images/tree.png";
+```
+
+* Set of Event listeners for start and restart the game
+
+```javascript
+   document.addEventListener("keydown", startGame);
+    document.addEventListener("mousedown", startGame);
+    document.addEventListener("touchstart", startGame);
+    document.addEventListener("keydown", restartGame);
+    document.addEventListener("mousedown", restartGame);
+    document.addEventListener("touchstart", restartGame);
+    ```
 ---
 ## Deployment
 
