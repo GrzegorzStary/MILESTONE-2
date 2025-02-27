@@ -584,6 +584,55 @@ context.fillStyle = "white";
 context.fillText("Best: " + bestScore, boardWidth - 60, 80);
 ```
 
+### Pole placing finction
+
+* If the game is over the poles are no longer approaching.
+* Calculates maxPoleHeight based on the space available (minimum pole height is set to 100px) ensures that there is enough space for bird to pass between set of trees.
+* Randomly determines the height of the top pole.
+
+```javascript
+if (gameOver) return
+
+const minPoleHeight = 100;
+const maxPoleHeight = boardHeight - minPoleHeight - gapBetweenPoles;
+const randomTopHeight = Math.floor(
+    Math.random() * (maxPoleHeight - minPoleHeight + 1) + minPoleHeight
+);
+```
+
+* const bottomPoleY --> Ensures the correct spacing between the top and bottom poles.
+
+* const topPole --> Assigns the randomly generated height, tracks if the player has passed the pole and places the pole at the rightmost side
+* y: 0 --> The top pole always starts at the top of the canvas
+
+* const bottomPole --> Height should match the remaining space, places the pole at the right side and Sets the position below the gap. (y: bottomPoleY)
+```javascript
+const bottomPoleY = randomTopHeight + gapBetweenPoles;
+
+const topPole = {
+    height: randomTopHeight,
+    img: topPoleImg,
+    passed: false,
+    width: poleWidth,
+    x: poleX,
+    y: 0
+};
+
+const bottomPole = {
+    height: poleHeight,
+    img: bottomPoleImg,
+    passed: false,
+    width: poleWidth,
+    x: poleX,
+    y: bottomPoleY
+};
+```
+
+* Prevents modification of existing obstacles, new ones are added at intervals.
+
+```javascript
+poleArray.push(topPole, bottomPole);
+```
 ---
 ## Deployment
 
