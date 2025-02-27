@@ -460,7 +460,7 @@ bottomPoleImg.src = "./assets/images/tree.png";
 * Set of Event listeners for start and restart the game
 
 ```javascript
-   document.addEventListener("keydown", startGame);
+    document.addEventListener("keydown", startGame);
     document.addEventListener("mousedown", startGame);
     document.addEventListener("touchstart", startGame);
     document.addEventListener("keydown", restartGame);
@@ -482,11 +482,10 @@ function startGame(e) {
     let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
         e.button === 0 || e.type === "touchstart";
 
-    // Game controls (event listeners for bumping the bird)
     if (!gameStarted && isStartKey) {
         gameStarted = true;
         requestAnimationFrame(update);
-        setInterval(placePole, 1700); // Adjusted for easier gameplay
+        setInterval(placePole, 1700);
         document.addEventListener("keydown", moveBird);
         document.addEventListener("mousedown", moveBird);
         document.addEventListener("touchstart", moveBird);
@@ -494,8 +493,45 @@ function startGame(e) {
 }
 ```
 
+### Update Function
 
+* It stops the game and prevent further code execution, as well as prowiding game feedback, Your Score and Best Score as well as instructions how to restart the game.
 
+```javascript
+if (gameOver) {
+    drawGameOverMessage();
+    return;
+}
+```
+
+* Creates a game loop that updates the screen.
+* Prevents overlapping images.
+
+```javascript
+requestAnimationFrame(update);
+context.clearRect(0, 0, board.width, board.height);
+```
+
+* VelocityY --> Simulates the gravity effect 
+* Prevent bird going above top edge of the canvas
+
+```javascript
+velocityY += gravity;
+bird.y = Math.max(bird.y + velocityY, 0);
+```
+
+* This is chacking IF bird went donw below the canvas the game is considered lost. 
+* Again, game over message, score, best score and how to restart the game text displays.
+
+```javascript
+if (bird.y > board.height) {
+    bird.y = board.height;
+    velocityY = 0;
+    gameOver = true;
+    drawGameOverMessage();
+    return;
+}
+```
 ---
 ## Deployment
 
