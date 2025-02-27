@@ -160,10 +160,10 @@ Overview of Page Content
 ---
 
 ### Design, Layout & Structure
+
+### **Wireframes**
 <details>
-  <summary><strong>#### **Wireframes**</strong></summary>
-
-
+  <summary><strong>Wireframes</strong></summary>
 
 #### **index.html Desktop**
 ![Desktop](assets/readme/images/startpage.png)
@@ -219,6 +219,8 @@ All pages have a blue background to enhance the feeling of consistency. I tried 
 * JavaScript
 
 ### Tools
+<details>
+  <summary><strong>Tools</strong></summary>
 
 * [GitHub](https://github.com/)
   * Used to store the project code after being created in GitPod/Git.
@@ -248,13 +250,14 @@ All pages have a blue background to enhance the feeling of consistency. I tried 
   *  Used as the primary code editor.
 * [ChatGPT](https://chatgpt.com)
   * Used for solving minor code issues and checking grammar in the README file.
-
+</details>
 ---
 
 ## Features
 
 ### All Sections/Pages
-
+<details>
+  <summary><strong>Pages</strong></summary>
 #### **Favicon**
 ![TAB FAV ICON](assets/readme/images/fav.png)
 
@@ -273,7 +276,7 @@ The favicon remains consistent across all three pages.
 
 #### **404.html**
 ![404.html](assets/readme/images/game5.png)
-
+</details>
 ---
 
 ### Future Features
@@ -308,45 +311,54 @@ Implement a feature where multiple players can enter their names, and their scor
 * 8 JEST TERSTING FAILS DUE TO WRONG VALUE PROVIDED AND RECEIVED. AS WELL AS WRONG FILE NAME (not linked to the testing file).
 ---
 ### HTML VALIDATOR
-
+<details>
+  <summary><strong>HTML VALIDATOR</strong></summary>
 ![INDEX](assets/readme/images/indexvalid.png)
 ![GAME](assets/readme/images/gamevalid.png)
 ![404](assets/readme/images/404valid.png)
+</details>
 
 ### CSS VALIDATOR
-
+<details>
+  <summary><strong>CSS VALIDATOR</strong></summary>
 ![CSS](assets/readme/images/cssvalid.png)
-
+</details>
 ### JS LINT
-
+<details>
+  <summary><strong>JS Lint</strong></summary>
 ![JS Lint](assets/readme/images/jslintvalid.png)
 #### Warning: Due to JEST testing, I was unable to find a proper solution for this issue. A similar issue also appears in the console.
 #### I have shortened lines of code to be below 80 characters. However I allowed long lines for comment lines (over 80 characters).
-
+</details>
 ### JEST
-
+<details>
+  <summary><strong>JEST</strong></summary>
 ![JEST](assets/readme/images/jest.png)
-
+</details>
 ### WAVE Accessibility
-
+<details>
+  <summary><strong>WAVE</strong></summary>
 ![WAVE](assets/readme/images/wave1.png)
 ![WAVE](assets/readme/images/wave2.png)
 ![WAVE](assets/readme/images/wave3.png)
 
 #### No errors or contrast issues present on any of the pages.
-
+</details>
 ### LIGHTHOUSE PERFORMANCE
-
+<details>
+  <summary><strong>LIGHTHOUSE</strong></summary>
 ![LIGHT](assets/readme/images/lighthouse1.png)
 ![LIGHT](assets/readme/images/lighthouse2.png)
 ![LIGHT](assets/readme/images/lighthouse3.png)
-
+</details>
 ---
 
 ## Manual Testing
 
 ### User Stories
 
+<details>
+  <summary><strong>USER STORIES</strong></summary>
 | No. | User Goal | How is it achieved? |
 | :--- | :--- | :--- |
 | 1 | I want to be able to control the bird's movement | This can be done by pressing the space bar, left mouse click, or tapping the screen. |
@@ -404,7 +416,7 @@ Implement a feature where multiple players can enter their names, and their scor
 | Flappy bird | After birds strike you will see your game summary | See the summary | Works as expected |
 
 ![STORY 6](assets/readme/images/game4.png)
-
+</details>
 ---
 
 ### Feature Testing
@@ -432,6 +444,9 @@ The site was tested on the following devices
 
 ---
 ## JS Functionality explanation 
+
+<details>
+  <summary><strong>JAVA SCRIPT FULL FUNCTIONALITY EXPLANATION</strong></summary>
 
 ### Window On Load Function
 
@@ -692,6 +707,7 @@ if (e.code === "Enter" || e.button === 2 || e.type === "touchstart") {
 location.reload();
 }
 ```
+</details>
 ---
 ## Deployment
 
