@@ -422,6 +422,7 @@ The site was tested on the following devices
 ---
 ## JS Functionality explanation 
 
+### Start Game Function 
 
 * The startGame function is responsible for initiating the game
 * The function checks whether the player has pressed the Spacebar, Arrow Up key, left mouse button, or touched the screen.
@@ -445,6 +446,7 @@ function startGame(e) {
         document.addEventListener("touchstart", moveBird);
     }
 }
+```
 
 
 
