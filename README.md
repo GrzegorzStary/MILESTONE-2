@@ -532,6 +532,58 @@ if (bird.y > board.height) {
     return;
 }
 ```
+
+### Game Rendering and Collision Code
+
+* Loops all poles, this creates the illusion of movement, bird flying towards the trees. However, trees are moving towards the bird.
+
+```javascript
+for (i = 0; i < poleArray.length; i += 1) {
+    let pole = poleArray[i];
+    pole.x += velocityX;
+    context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
+```
+
+* Collision detection function checking IF collision bird X tree occurred
+* If TRUE it will stop the game and display end message.
+
+```javascript
+if (collision(bird, pole)) {
+    gameOver = true;
+    drawGameOverMessage();
+    return;
+}
+```
+
+*  This code updates score when the tree is succesfully passed. (Making sure score increment is set by 1 not by 2 because we are passing two sets of the tree at a time (top and bottom trunk)).
+
+```javascript
+if (!pole.passed && pole.x + pole.width < bird.x && pole.y > 0) {
+    pole.passed = true;
+    score += 1;
+}
+```
+
+* IF poles are succesfully passed the code removing them from tha array. This prevents poles to accumulate "behind the bird".
+
+```javascript
+if (poleArray.length > 0 && poleArray[0].x + poleWidth < 0) {
+    poleArray.shift();
+    poleArray.shift();
+}
+```
+
+* Code for the score and best score display (left and right top corner)
+
+```javascript
+context.fillStyle = "white";
+context.font = "bold 20px Arial";
+context.fillText("Score: " + score, 60, 80);
+
+context.fillStyle = "white";
+context.fillText("Best: " + bestScore, boardWidth - 60, 80);
+```
+
 ---
 ## Deployment
 
