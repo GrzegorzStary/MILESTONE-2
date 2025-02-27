@@ -63,12 +63,20 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [Browser Compatibility](#browser-compatibility)  
     - [Responsiveness / Device Testing](#responsiveness--device-testing)  
 
-12. **[Deployment](#deployment)**  
+12. **[JS Functionality Explanation](#js-functionality-explanation)**  
+    - [Window On Load Function](#window-on-load-function)  
+    - [Start Game Function](#start-game-function)  
+    - [Update Function](#update-function)  
+    - [Game Rendering and Collision Code](#game-rendering-and-collision-code)  
+    - [Pole Placing Function](#pole-placing-function)  
+    - [Collision Function](#detailed-explanation-of-collision-function)  
+    - [Restart Game Function](#restart-game-function)  
+
+13. **[Deployment](#deployment)**  
     - [GitHub Pages Deployment](#github-pages-deployment)  
     - [Forking the Repository](#forking-the-repository)  
     - [Cloning the Repository](#cloning-the-repository)  
-
-
+    
 ---
 ## Project Development & Planning
 
@@ -633,9 +641,10 @@ const bottomPole = {
 ```javascript
 poleArray.push(topPole, bottomPole);
 ```
-### DETAILED EXPLANATION OF COLLISION FUNCTION
 
-#### Checks if two objects are overlapping using conditions A A B B collision detection widely used in 2D games.
+### DETAILED EXPLANATION OF COLLISION FUNCTION !!THIS PART IS OUT OF CI LEARNING SCOPE - I TOOK IT FULLY FROM YOUTUBE TUTORIAL!! 
+
+#### Checks if two objects are overlapping using conditions A, A, B, B collision detection widely used in 2D games.
 
 * The function considers two rectangular objects, a (bird) and b (obstacle/pole)
 
