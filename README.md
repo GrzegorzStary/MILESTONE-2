@@ -81,6 +81,7 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [Cloning the Repository](#cloning-the-repository)  
 
 </details>
+
 ---
 ## Project Development & Planning
 
