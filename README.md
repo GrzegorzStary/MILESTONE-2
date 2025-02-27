@@ -310,6 +310,7 @@ Implement a feature where multiple players can enter their names, and their scor
 
 ![JS Lint](assets/readme/images/jslintvalid.png)
 #### Warning: Due to JEST testing, I was unable to find a proper solution for this issue. A similar issue also appears in the console.
+#### I have shortened lines of code to be below 80 characters. However I allowed long lines for comment lines (over 80 characters).
 
 ### JEST
 
@@ -419,17 +420,46 @@ The site was tested on the following devices
 * Samsung Galaxy Note 3
 
 ---
+## JS Functionality explanation 
 
+
+* The startGame function is responsible for initiating the game
+* The function checks whether the player has pressed the Spacebar, Arrow Up key, left mouse button, or touched the screen.
+* if (!gameStarted && isStartKey) --> IF Game NOT started (!) and player pressed the KEY the game begins.
+* gameStarted = true; --> Marks the game as started.
+* setInterval(placePole, 1700); --> Calls the placePole function every 1.7 seconds to generate obstacles
+* Event Listeners --> Are set to allow user choose one of 3 buttons to start the game and control the bird.
+
+```javascript
+function startGame(e) {
+    let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
+        e.button === 0 || e.type === "touchstart";
+
+    // Game controls (event listeners for bumping the bird)
+    if (!gameStarted && isStartKey) {
+        gameStarted = true;
+        requestAnimationFrame(update);
+        setInterval(placePole, 1700); // Adjusted for easier gameplay
+        document.addEventListener("keydown", moveBird);
+        document.addEventListener("mousedown", moveBird);
+        document.addEventListener("touchstart", moveBird);
+    }
+}
+
+
+
+---
 ## Deployment
 
 ### GitHub Pages
 
 The site has been deployed to GitHub Pages. Follow these steps to deploy:
 
-Go to the Settings tab in the GitHub repository.
-Select Pages from the left-hand menu.
-Under Source, choose Branch: main.
-Click Save.
+* Go to the Settings tab in the GitHub repository.
+* Select Pages from the left-hand menu.
+* Under Source, choose Branch: main.
+* Click Save.
+
 Once published successfully, a live link will be generated.
 
 You can find the live link here: [CLICK!](https://grzegorzstary.github.io/MILESTONE-2/)
