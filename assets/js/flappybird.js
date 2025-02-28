@@ -118,7 +118,7 @@ window.onload = function () {
     document.addEventListener("touchstart", restartGame); // I dont know how adding this restartGame "Fixed" -
     // Best score update on the small/touch screen BUT IT WORKS... (I am guessing that touchstart restartGame is directly corelated 
     // with localStorage that after pressing will restart the game and update Best score!)
-}
+};
 // Function to start the game (BUTTONS)
 function startGame(e) {
     let isStartKey = e.code === "Space" || e.code === "ArrowUp" ||
@@ -160,7 +160,7 @@ function update() {
     // Draw Bird
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height); //taken from Youtube tutorial
     // Move and draw  poles taken from Youtube tutorial
-    for (i = 0; i < poleArray.length; i += 1) {
+    for (let i = 0; i < poleArray.length; i += 1) {
         let pole = poleArray[i];
         pole.x += velocityX;
         context.drawImage(pole.img, pole.x, pole.y, pole.width, pole.height);
