@@ -461,14 +461,64 @@ Implement a feature where multiple players can enter their names, and their scor
 
 The site was tested on the following devices
 
-* Apple Macbook PRO M3 2023
+* Apple Macbook PRO M3 MAX 2023
+
+<details>
+  <summary><strong> APPLE Apple MACBOOK PRO M3 Max 16inch
+![index.html](assets/readme/images/macpro3 copy.png)
+![game.html](assets/readme/images/macpro2.png)
+![404.html](assets/readme/images/macpro1.png) </strong></summary>
+</details>
+
 * Apple Macbook Air 2021 
+
 * Apple iPhone 13
-* Apple iPhone 12
+
+<details>
+  <summary><strong> APPLE iPhone 13
+![index.html](assets/readme/images/iphone131.PNG)
+![game.html](assets/readme/images/iphone132.PNG)
+![404.html](assets/readme/images/iphone133.PNG) </strong></summary>
+</details>
+
+* Apple iPhone 12 PRO
+
+<details>
+  <summary><strong> APPLE iPhone 12 PRO
+![index.html](assets/readme/images/phone121.png)
+![game.html](assets/readme/images/iphone122.png)
+![404.html](assets/readme/images/iphone123.png) </strong></summary>
+</details>
+
 * Apple iPad mini
+
+<details>
+  <summary><strong> APPLE iPad mini
+![index.html](assets/readme/images/imini1.png)
+![game.html](assets/readme/images/imini2.png)
+![404.html](assets/readme/images/imini3.png) </strong></summary>
+</details>
+
 * Oppo A17
-* Samsung Galaxy S9
+* Samsung Galaxy S9+
+
+<details>
+  <summary><strong> SAMSUNG Galaxy S9+
+![index.html](assets/readme/images/galaxys91.png)
+![game.html](assets/readme/images/galaxys92.png)
+![404.html](assets/readme/images/galaxys93.png) </strong></summary>
+</details>
+
 * Samsung Galaxy Note 3
+
+<details>
+  <summary><strong> SAMSUNG Galaxu Note 3
+![index.html](assets/readme/images/galaxynote1.png)
+![game.html](assets/readme/images/galaxynote2.png)
+![404.html](assets/readme/images/galaxynote3.png) </strong></summary>
+</details>
+
+
 
 ---
 ## JS Functionality explanation 
