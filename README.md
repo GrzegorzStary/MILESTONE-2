@@ -75,7 +75,7 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [Collision Function](#detailed-explanation-of-collision-function)  
     - [Restart Game Function](#restart-game-function)  
 
-13. **[Jest Testing](#jest-testing)**  
+13. **[Jest Testing](#jest-testing-explanation)**  
     - [Setting up Jest](#setting-up-jest)  
     - [Collision Detection Test](#collision-detection-test)  
     - [Score Handling Test](#score-handling-test)  
@@ -86,6 +86,10 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [GitHub Pages Deployment](#github-pages-deployment)  
     - [Forking the Repository](#forking-the-repository)  
     - [Cloning the Repository](#cloning-the-repository)  
+
+15. **[Acknowledgement](#acknoledgments)** 
+
+16. **[Credits](#credits)** 
 
 </details>
 
@@ -316,14 +320,14 @@ Implement a feature where multiple players can enter their names, and their scor
 ## Testing & Bugs
 
 ### BUGS 
-* 1 Bird was not appearing on designed location.
-* 2 Poles are not visible
-* 3 Poles are not moving
-* 4 Game not stops when the bird colided the pole
-* 5 The best score counter not saving/updating the best score
-* 6 Game restart on the touchscreen is not working
-* 7 Best score counter not working on the smallscreen. 
-* 8 JEST TERSTING FAILS DUE TO WRONG VALUE PROVIDED AND RECEIVED. AS WELL AS WRONG FILE NAME (not linked to the testing file).
+* 1 Bird was not appearing on designed location. - FIXED
+* 2 Poles are not visible - FIXED
+* 3 Poles are not moving - FIXED
+* 4 Game not stops when the bird colided the pole - FIXED
+* 5 The best score counter not saving/updating the best score - FIXED
+* 6 Game restart on the touchscreen is not working - FIXED
+* 7 Best score counter not working on the smallscreen. - FIXED
+* 8 JEST TERSTING FAILS DUE TO WRONG VALUE PROVIDED AND RECEIVED. AS WELL AS WRONG FILE NAME (not linked to the testing file). - FIXED
 ---
 ### HTML VALIDATOR
 <details>
@@ -929,3 +933,21 @@ The project will now be cloned locally for you to use.
 6. Type git clone copied-git-url into the IDE terminal
 
 The project will now be cloned locally for you to use.
+
+---
+
+## Acknowledgement
+
+* A special thanks to my tutor, Tom, for his unwavering support throughout the development of my Milestone Project 2.
+* I would like to express my gratitude to my mentor, Gereth, for his invaluable feedback on my project.
+* I appreciate everyone who took the time to review my code.
+* I am grateful to my family for tirelessly testing my game and providing valuable insights on gameplay issues.
+* Lastly, I thank myself for persevering and not giving up.
+
+---
+
+## Credits
+
+* 
+
+---
