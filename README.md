@@ -466,7 +466,7 @@ The site was tested on the following devices
 <details>
   <summary><strong>APPLE MacBook PRO M3 Max 16-inch</strong></summary>
 
-  ![index.html](assets/readme/images/macpro3 copy.png)  
+  ![index.html](assets/readme/images/macpro3.png)  
   ![game.html](assets/readme/images/macpro2.png)  
   ![404.html](assets/readme/images/macpro1.png)  
 
