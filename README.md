@@ -75,7 +75,12 @@ This documentation covers my web application: Flappy Bird. It is a browser-based
     - [Collision Function](#detailed-explanation-of-collision-function)  
     - [Restart Game Function](#restart-game-function)  
 
-13. **[]
+13. **[Jest Testing](#jest-testing)**  
+    - [Setting up Jest](#setting-up-jest)  
+    - [Collision Detection Test](#collision-detection-test)  
+    - [Score Handling Test](#score-handling-test)  
+    - [Game Restart Test](#game-restart-test)  
+    - [Gravity Effect Test](#gravity-effect-test)  
 
 14. **[Deployment](#deployment)**  
     - [GitHub Pages Deployment](#github-pages-deployment)  
