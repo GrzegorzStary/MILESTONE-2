@@ -257,12 +257,6 @@ All pages have a blue background to enhance the feeling of consistency. I tried 
   * Used to validate HTML code and detect errors or warnings.
 * [W3C CSS Validation](https://jigsaw.w3.org/css-validator/)
   * Used to validate CSS code and ensure compliance with web standards.
-* [Youtube](https://www.youtube.com/watch?v=jj5ADM2uywg)
-  * Used for tutorials, including "Create Flappy Bird in JavaScript, HTML, and CSS."
-* [Cleanpng](https://www.cleanpng.com/)
-* [PngEgg](https://www.pngegg.com/)
-* [Freepik](https://www.freepik.com/)
-  * Used to source images for the project.
 * [VSCode](https://code.visualstudio.com/)
   *  Used as the primary code editor.
 * [ChatGPT](https://chatgpt.com)
@@ -948,6 +942,9 @@ The project will now be cloned locally for you to use.
 
 ## Credits
 
-* 
+* [Cleanpng](https://www.cleanpng.com/) - Source of images
+* [PngEgg](https://www.pngegg.com/) - Source of images
+* [Freepik](https://www.freepik.com/) - Source of images
+* [Youtube](https://www.youtube.com/watch?v=jj5ADM2uywg) - Used for tutorials "Create Flappy Bird in JavaScript, HTML, and CSS."
 
 ---
